@@ -55,6 +55,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 |---|---|
 | [[concepts/scaling-and-the-bitter-lesson]] | The Bitter Lesson, scaling laws, GPT scaling trajectory |
 | [[concepts/foundation-models]] | Pretrain-then-adapt paradigm, transfer learning |
+| [[concepts/agi-and-intelligence]] | AGI timelines, cognitive deficits, cognitive core, model collapse, RL limitations, LLM culture |
 
 ---
 

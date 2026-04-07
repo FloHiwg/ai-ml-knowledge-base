@@ -1,7 +1,7 @@
 # Prompting and Reasoning Strategies
 
-**Related:** [[inference/decoding-strategies]] · [[architecture/graph-neural-networks]] · [[training/fine-tuning]]  
-**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]]
+**Related:** [[inference/decoding-strategies]] · [[architecture/graph-neural-networks]] · [[training/fine-tuning]] · [[concepts/agi-and-intelligence]]  
+**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
 
 ---
 
@@ -25,6 +25,18 @@ Each level generalizes the one above — higher levels can simulate lower ones:
 **Zero-shot:** Just ask. GPT-2 demonstrated that large LMs can answer questions in natural language without any examples — because their training data contained demonstrations of task-solving implicitly.
 
 **Few-shot:** Prepend 1–5 examples of the desired format to the prompt. The model infers the pattern and applies it. This is called **in-context learning** — no gradient updates, just conditioning.
+
+### How In-Context Learning Works
+
+In-context learning is not merely pattern matching — it may implement a form of gradient descent *internally* through the attention mechanism:
+
+- Research has shown that transformers trained on XY regression pairs learn to perform linear regression in-context
+- Analysis of the weights reveals mechanics analogous to a gradient descent optimizer running inside the layers
+- Theoretically, attention heads can implement gradient descent steps
+
+This explains why in-context adaptation is powerful: the model isn't just retrieving — it's doing something structurally similar to learning, but in activation space rather than weight space.
+
+**Memory framing:** Everything in the context window is directly accessible (working memory); everything in the weights is a hazy recollection at ~0.07 bits per training token. Providing relevant text in-context dramatically outperforms relying on parametric memory for specific facts. See [[concepts/agi-and-intelligence]].
 
 ---
 

@@ -1,7 +1,7 @@
 # Pretraining
 
-**Related:** [[training/tokenization]] · [[training/fine-tuning]] · [[training/distributed-training]] · [[concepts/foundation-models]] · [[concepts/scaling-and-the-bitter-lesson]]  
-**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]]
+**Related:** [[training/tokenization]] · [[training/fine-tuning]] · [[training/distributed-training]] · [[concepts/foundation-models]] · [[concepts/scaling-and-the-bitter-lesson]] · [[concepts/agi-and-intelligence]]  
+**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
 
 ---
 
@@ -93,3 +93,17 @@ See [[training/fine-tuning]] for SFT, RLHF, and DPO.
 | Coverage | Task-specific | General |
 
 Self-supervised pretraining is what enables the [[concepts/scaling-and-the-bitter-lesson|Bitter Lesson]] dynamic in NLP: scale data + compute → performance improves without bound.
+
+---
+
+## Pre-Training as "Crappy Evolution"
+
+Pre-training and biological evolution are imperfect analogs. Both produce a starting point with broad knowledge and embedded cognitive algorithms. The key difference: evolution runs an outer loop over generations and encodes priors into DNA/brain wiring; pre-training runs gradient descent on internet text in a single lifetime.
+
+Pre-training does two things simultaneously:
+1. **Knowledge encoding** — compresses world knowledge from the training corpus
+2. **Cognitive algorithm formation** — bootstraps in-context learning, reasoning circuits, pattern-completion strategies
+
+The knowledge component may actually be a liability: models memorize encyclopedic facts that can distract from generalization. See [[concepts/agi-and-intelligence]] for the **cognitive core** concept — the vision of a model stripped of encyclopedic memory that retains only reasoning algorithms (~1B params).
+
+**Data quality as the binding constraint:** Current large models are big partly because they compress enormous amounts of low-quality internet noise alongside signal. Better curated pre-training data would allow much smaller models with equivalent cognitive capability.

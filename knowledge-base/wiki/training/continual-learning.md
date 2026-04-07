@@ -1,7 +1,7 @@
 # Continual Learning
 
-**Related:** [[training/fine-tuning]] · [[training/reasoning-models]] · [[concepts/foundation-models]]  
-**Sources:** [[summaries/Continual Learning with RL for LLMs]]
+**Related:** [[training/fine-tuning]] · [[training/reasoning-models]] · [[concepts/foundation-models]] · [[concepts/agi-and-intelligence]]  
+**Sources:** [[summaries/Continual Learning with RL for LLMs]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
 
 ---
 
@@ -142,6 +142,20 @@ Beyond just retaining old knowledge, RL also **improves out-of-distribution perf
 2. RL synthesizes those skills into composite, generalizable reasoning
 
 Either alone is suboptimal. Math-specific RL training generalizes to non-math tasks; math SFT does not. On-policy data and the presence of a negative gradient (penalizing incorrect responses) are the key contributors.
+
+---
+
+## The Missing Sleep Equivalent
+
+Karpathy identifies a deeper form of continual learning that LLMs lack entirely — not just resistance to forgetting, but an active consolidation mechanism analogous to sleep:
+
+- During sleep, humans distill context-window experience into long-term memory
+- The process involves reviewing events, generating synthetic scenarios, and strengthening important patterns
+- Every LLM session starts from scratch — no equivalent of overnight consolidation
+
+A possible implementation: after each session, a distillation phase that takes the context window, analyzes it, generates synthetic data, and updates a small sparse subset of weights (e.g., a per-user LoRA). This would give each instance a genuine individual memory rather than just a shared pre-trained prior.
+
+See [[concepts/agi-and-intelligence]] for the full framing of missing cognitive capabilities.
 
 ---
 
