@@ -26,6 +26,8 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[training/fine-tuning]] | SFT, RLHF, DPO, PEFT, imitation learning |
 | [[training/distributed-training]] | DDP, FSDP, gradient accumulation, AMP |
 | [[training/optimization]] | Learning rate schedules, gradient clipping, weight initialization |
+| [[training/reasoning-models]] | Long CoT, RLVR, GRPO, DeepSeek-R1, inference-time scaling, distillation |
+| [[training/continual-learning]] | Catastrophic forgetting, RL vs SFT, RL's Razor, on-policy data, EAFT |
 
 ---
 

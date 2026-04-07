@@ -1,7 +1,7 @@
 # Fine-Tuning: SFT, RLHF, and DPO
 
-**Related:** [[training/pretraining]] · [[concepts/foundation-models]]  
-**Sources:** [[summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models]] · [[summaries/Direct Preference Optimization (DPO)]]
+**Related:** [[training/pretraining]] · [[concepts/foundation-models]] · [[training/continual-learning]]  
+**Sources:** [[summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models]] · [[summaries/Direct Preference Optimization (DPO)]] · [[summaries/Continual Learning with RL for LLMs]]
 
 ---
 
@@ -125,4 +125,5 @@ Where the model already ranks preferred > dispreferred, the gradient contributio
 | Align to human preferences (cheap) | DPO |
 | Align to human preferences (max performance) | RLHF |
 | Fine-tune without forgetting | PEFT / LoRA |
-| Math/code with verifiable rewards | RLVR (GRPO/PPO variant) |
+| Math/code with verifiable rewards | RLVR (GRPO/PPO variant) → see [[training/reasoning-models]] |
+| Adapt without forgetting prior capabilities | RL (on-policy) → see [[training/continual-learning]] |
