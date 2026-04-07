@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ML AI Engineering Cheat Sheet"
+              "title": "README"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ML AI Engineering Cheat Sheet"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ML AI Engineering Cheat Sheet"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ML AI Engineering Cheat Sheet"
+              "title": "Outline of README"
             }
           }
         ],
@@ -185,9 +185,39 @@
   },
   "active": "5a0dda95f4b60122",
   "lastOpenFiles": [
-    "knowledge-base/summaries/Applying Statistics to LLM Evaluations.md",
-    "knowledge-base/summaries/Language Model Training and Inference From Concept to Code.md",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations.md",
+    "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+    "knowledge-base/summaries/Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D..md",
+    "knowledge-base/wiki/index.md",
+    "knowledge-base/wiki/training/reasoning-models.md",
+    "README.md",
+    "knowledge-base/raw/articles/Andrej Karpathy — AGI is still a decade away.md",
+    "knowledge-base/wiki/training/tokenization.md",
+    "knowledge-base/wiki/applications/agentic-patterns.md",
+    "knowledge-base/wiki/applications/rag.md",
+    "knowledge-base/wiki/concepts/foundation-models.md",
+    "knowledge-base/wiki/concepts/scaling-and-the-bitter-lesson.md",
+    "knowledge-base/wiki/evaluation/statistical-evaluation.md",
+    "knowledge-base/wiki/evaluation/benchmarks.md",
+    "knowledge-base/wiki/inference/prompting-and-reasoning.md",
+    "knowledge-base/wiki/inference/decoding-strategies.md",
+    "knowledge-base/wiki/training/optimization.md",
+    "knowledge-base/wiki/training/distributed-training.md",
+    "knowledge-base/wiki/training/fine-tuning.md",
+    "knowledge-base/wiki/training/pretraining.md",
+    "knowledge-base/wiki/architecture/graph-neural-networks.md",
+    "knowledge-base/wiki/architecture/pre-transformer-architectures.md",
+    "knowledge-base/wiki/architecture/vision-transformers.md",
+    "knowledge-base/raw/articles/Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D..md",
+    "knowledge-base/wiki/architecture/positional-embeddings.md",
+    "knowledge-base/wiki/architecture/attention.md",
+    "knowledge-base/wiki/architecture/transformer.md",
+    "knowledge-base/wiki/training",
+    "knowledge-base/wiki/inference",
+    "knowledge-base/wiki/evaluation",
+    "knowledge-base/wiki/concepts",
+    "knowledge-base/wiki/architecture",
+    "knowledge-base/wiki/applications",
+    "knowledge-base/wiki",
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffec984b4-30fc-4a0b-9f41-420b04304b18_1413x566.png",
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffac4926a-e9a9-4b85-a3eb-47d7a327515c_2148x1406.jpeg",
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff97d7c72-6434-4015-b8ce-71b44913be18_1849x1022.jpeg",
@@ -199,37 +229,7 @@
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe8f66323-e52f-4aeb-adcc-4189318d419b_848x616.png",
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde650f22-73f5-4068-809f-ddb9dc130beb_2256x627.jpeg",
     "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations",
-    "knowledge-base/summaries/The Anatomy of an LLM Benchmark.md",
     "knowledge-base/manual",
-    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark.md",
-    "knowledge-base/raw/articles/Direct Preference Optimization (DPO).md",
-    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark",
-    "knowledge-base/summaries/Graph-Based Prompting and Reasoning with Language Models.md",
-    "knowledge-base/summaries/Direct Preference Optimization (DPO).md",
-    "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
-    "knowledge-base/summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/summaries/The Bitter Lesson.md",
-    "knowledge-base/summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
-    "knowledge-base/raw/articles/The Bitter Lesson.md",
-    "knowledge-base/summaries",
-    "knowledge-base/raw/articles/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models",
-    "knowledge-base/raw/Language Model Training and Inference From Concept to Code.md",
-    "knowledge-base/raw/articles/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/raw/articles/Language Model Training and Inference From Concept to Code.md",
-    "knowledge-base/raw/articles/Language Model Training and Inference From Concept to Code",
-    "knowledge-base/raw/articles/Graph-Based Prompting and Reasoning with Language Models.md",
-    "knowledge-base/raw/articles/Graph-Based Prompting and Reasoning with Language Models",
-    "knowledge-base/raw/articles/Direct Preference Optimization (DPO)",
-    "README.md",
-    "knowledge-base/raw/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/raw/books/Transformers Learn In-Context by Gradient Descent.pdf",
-    "knowledge-base/raw/books/RLSR.pdf",
-    "knowledge-base/raw/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
-    "knowledge-base/raw/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/raw/Graph-Based Prompting and Reasoning with Language Models.md",
-    "knowledge-base/raw/Direct Preference Optimization (DPO).md"
+    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark"
   ]
 }
