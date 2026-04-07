@@ -12,7 +12,7 @@ If you like the newsletter, feel free to [get in touch with me](https://cameronr
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F553be3b4-3c80-435d-88c5-c7079bff9cbb_1940x1090.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F553be3b4-3c80-435d-88c5-c7079bff9cbb_1940x1090.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!bEsV!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F553be3b4-3c80-435d-88c5-c7079bff9cbb_1940x1090.png)
 
@@ -65,7 +65,7 @@ In prior overviews, we have discussed how [raw text is processed](https://camero
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2cac73ca-fa2b-471c-b1bd-a023af6264e8_1754x1166.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2cac73ca-fa2b-471c-b1bd-a023af6264e8_1754x1166.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!V49-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2cac73ca-fa2b-471c-b1bd-a023af6264e8_1754x1166.png)
 
@@ -101,7 +101,7 @@ Such a modification is necessary because the decoder is expected to generate a t
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fe22dcc71-2a18-4d31-b811-9fae5d6c2889_1586x750.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fe22dcc71-2a18-4d31-b811-9fae5d6c2889_1586x750.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!BUno!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe22dcc71-2a18-4d31-b811-9fae5d6c2889_1586x750.png)
 
@@ -137,7 +137,7 @@ Illustration of a layer in a graph convolutional network
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fcd1bd461-74e7-43e4-8151-e24ea4262071_1348x884.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fcd1bd461-74e7-43e4-8151-e24ea4262071_1348x884.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!0j4b!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcd1bd461-74e7-43e4-8151-e24ea4262071_1348x884.png)
 
@@ -149,7 +149,7 @@ The GAT \[14\] architecture is somewhat similar to the GCN, but it doesn’t jus
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa6aeb7fb-10a7-4d6f-bc41-efb7e556b6ef_664x476.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa6aeb7fb-10a7-4d6f-bc41-efb7e556b6ef_664x476.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!xrrD!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6aeb7fb-10a7-4d6f-bc41-efb7e556b6ef_664x476.png)
 
@@ -161,7 +161,7 @@ Finally, before moving on to graph-based prompting techniques, there is one fina
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Ff04dd32f-0938-47dc-a8c8-c6a4377a5b12_1604x858.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Ff04dd32f-0938-47dc-a8c8-c6a4377a5b12_1604x858.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!eW47!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff04dd32f-0938-47dc-a8c8-c6a4377a5b12_1604x858.png)
 
@@ -177,7 +177,7 @@ As we have discussed, humans do not reason linearly. Rather, we make leaps and c
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F8ba9398f-32d5-4e02-bf8b-05561a51e6b6_1608x884.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F8ba9398f-32d5-4e02-bf8b-05561a51e6b6_1608x884.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!6RYC!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8ba9398f-32d5-4e02-bf8b-05561a51e6b6_1608x884.png)
 
@@ -207,7 +207,7 @@ However, the structure of both stages is identical other than the modified input
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F6c037be3-7b93-4815-a15c-7ea3165e8a4b_1548x952.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F6c037be3-7b93-4815-a15c-7ea3165e8a4b_1548x952.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!46tN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6c037be3-7b93-4815-a15c-7ea3165e8a4b_1548x952.png)
 
@@ -231,7 +231,7 @@ Notably, we should realize here that the GOTR framework is using a different mod
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F7c69c15a-9512-4400-9a7a-b835750616cf_2108x820.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F7c69c15a-9512-4400-9a7a-b835750616cf_2108x820.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!6MVB!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7c69c15a-9512-4400-9a7a-b835750616cf_2108x820.png)
 
@@ -255,7 +255,7 @@ After cross-attention, we still have image features, text features, and (potenti
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F86d993f1-7c49-4a86-b159-8f491748a7f1_1636x362.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F86d993f1-7c49-4a86-b159-8f491748a7f1_1636x362.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!1i_m!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86d993f1-7c49-4a86-b159-8f491748a7f1_1636x362.png)
 
@@ -265,7 +265,7 @@ Learnable fusion layer for GOTR (from \[1\])
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F3ad21d3d-6ff8-458c-8674-7e0a390a2572_1612x584.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F3ad21d3d-6ff8-458c-8674-7e0a390a2572_1612x584.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!uuED!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3ad21d3d-6ff8-458c-8674-7e0a390a2572_1612x584.png)
 
@@ -285,7 +285,7 @@ When we examine the accuracy of GOTR’s final solutions, we see that the framew
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2864d797-1fa9-4a3e-942b-6228cb60c280_1626x1064.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2864d797-1fa9-4a3e-942b-6228cb60c280_1626x1064.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!dYMN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2864d797-1fa9-4a3e-942b-6228cb60c280_1626x1064.png)
 
@@ -320,7 +320,7 @@ The GoT approach in \[1\] enables us to model individual thoughts from an LLM an
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fc113cb01-ac85-4e0e-a418-a21c5dd9a4e0_1728x718.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fc113cb01-ac85-4e0e-a418-a21c5dd9a4e0_1728x718.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!-9Bs!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc113cb01-ac85-4e0e-a418-a21c5dd9a4e0_1728x718.png)
 
@@ -416,7 +416,7 @@ One downside of GoT prompting that we see above is that the total cost of derivi
 
 [
 
-![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fcf6bfcd2-78a6-4d51-9a1c-3f87db8f3cf9_1514x1372.png)
+![](Graph-Based%20Prompting%20and%20Reasoning%20with%20Language%20Models/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fcf6bfcd2-78a6-4d51-9a1c-3f87db8f3cf9_1514x1372.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!ODWe!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcf6bfcd2-78a6-4d51-9a1c-3f87db8f3cf9_1514x1372.png)
 

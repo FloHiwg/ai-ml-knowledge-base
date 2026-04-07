@@ -57,13 +57,9 @@ def fix_file(md_path: str) -> int:
         alt_text = match.group(1)
         raw_path = match.group(2)
 
-        # Strip the folder prefix (everything up to and including the first '/')
-        if "/" not in raw_path:
-            return match.group(0)
-        encoded_file = raw_path.split("/", 1)[1]
-
+        # group(2) is already the part after folder/, so decode directly
         # Double-decode to recover the original URL, then extract the image ID
-        decoded_url = urllib.parse.unquote(urllib.parse.unquote(encoded_file))
+        decoded_url = urllib.parse.unquote(urllib.parse.unquote(raw_path))
         basename = decoded_url.split("/")[-1]
         image_id = os.path.splitext(basename)[0]
 

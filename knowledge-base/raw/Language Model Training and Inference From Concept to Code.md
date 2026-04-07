@@ -2,7 +2,7 @@
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F85dbb7d4-7acd-459f-8d02-8ffdd042ecbf_1938x1092.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F85dbb7d4-7acd-459f-8d02-8ffdd042ecbf_1938x1092.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!5gOZ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F85dbb7d4-7acd-459f-8d02-8ffdd042ecbf_1938x1092.png)
 
@@ -62,7 +62,7 @@ To perform this tokenization, we rely upon a [tokenizer](https://huggingface.co/
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F1fd4ac84-3925-428c-8f6a-64dfed5268ad_1714x848.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F1fd4ac84-3925-428c-8f6a-64dfed5268ad_1714x848.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!Ugld!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1fd4ac84-3925-428c-8f6a-64dfed5268ad_1714x848.png)
 
@@ -72,7 +72,7 @@ There is one final step required to construct the input that is actually passed 
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F3510038d-21bf-4a65-b4a2-20c5676b0fb1_1468x1392.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F3510038d-21bf-4a65-b4a2-20c5676b0fb1_1468x1392.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!_g8L!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3510038d-21bf-4a65-b4a2-20c5676b0fb1_1468x1392.png)
 
@@ -82,7 +82,7 @@ We add these embeddings to the token embeddings at the corresponding position. S
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F6e3f8a12-a893-4508-95d7-312d37a77ea2_1792x1112.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F6e3f8a12-a893-4508-95d7-312d37a77ea2_1792x1112.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!ROno!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6e3f8a12-a893-4508-95d7-312d37a77ea2_1792x1112.png)
 
@@ -94,7 +94,7 @@ Context window for language models
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa6ac34b2-b4c4-4ae8-87eb-dd46417adba4_1932x374.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa6ac34b2-b4c4-4ae8-87eb-dd46417adba4_1932x374.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!Mawr!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6ac34b2-b4c4-4ae8-87eb-dd46417adba4_1932x374.png)
 
@@ -130,7 +130,7 @@ As we can see above, the next token is predicted by passing a token’s output v
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F08729f45-ace9-419d-80dd-4520c878cfac_2300x1164.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F08729f45-ace9-419d-80dd-4520c878cfac_2300x1164.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!vR2B!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F08729f45-ace9-419d-80dd-4520c878cfac_2300x1164.png)
 
@@ -225,7 +225,7 @@ Beyond the basic transformer architecture, there are extra [dropout](https://pyt
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa0695ab4-3547-436a-a00b-f88245869f28_1820x1024.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Fa0695ab4-3547-436a-a00b-f88245869f28_1820x1024.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!AfDI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa0695ab4-3547-436a-a00b-f88245869f28_1820x1024.png)
 
@@ -237,7 +237,7 @@ Now that we understand the implementation of an LLM’s model architecture, we w
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F83f92e86-d0c9-4c10-a1e9-70a9f69283c9_2168x1564.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F83f92e86-d0c9-4c10-a1e9-70a9f69283c9_2168x1564.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!YcNG!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F83f92e86-d0c9-4c10-a1e9-70a9f69283c9_2168x1564.png)
 
@@ -252,7 +252,7 @@ Each of these tensors store an entire [mini-batch](https://machinelearningmaster
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2ea151b2-0d4d-4a50-b701-22a232342a79_724x366.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F2ea151b2-0d4d-4a50-b701-22a232342a79_724x366.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!KkOY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2ea151b2-0d4d-4a50-b701-22a232342a79_724x366.png)
 
@@ -260,7 +260,7 @@ The first step in the forward pass it to construct a matrix corresponding to our
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Ffc60ee97-77ad-40b9-af54-830b71dc1882_1156x214.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252Ffc60ee97-77ad-40b9-af54-830b71dc1882_1156x214.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!kNow!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffc60ee97-77ad-40b9-af54-830b71dc1882_1156x214.png)
 
@@ -302,7 +302,7 @@ The second case outlined above is especially applicable to the current generatio
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F8cf5757b-34ae-4f5f-b0bc-2b9bcba54b67_2168x1600.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F8cf5757b-34ae-4f5f-b0bc-2b9bcba54b67_2168x1600.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!QFWJ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cf5757b-34ae-4f5f-b0bc-2b9bcba54b67_2168x1600.png)
 
@@ -331,7 +331,7 @@ Gradient accumulation removes the last step shown above. Instead, the gradient i
 
 [
 
-![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F7b057707-9c67-4a13-89ac-c7d1b2c8f342_2168x930.png)
+![](Language%20Model%20Training%20and%20Inference%20From%20Concept%20to%20Code/https%253A%252F%252Fsubstack-post-media.s3.amazonaws.com%252Fpublic%252Fimages%252F7b057707-9c67-4a13-89ac-c7d1b2c8f342_2168x930.jpeg)
 
 ](https://substackcdn.com/image/fetch/$s_!lbAd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7b057707-9c67-4a13-89ac-c7d1b2c8f342_2168x930.png)
 
