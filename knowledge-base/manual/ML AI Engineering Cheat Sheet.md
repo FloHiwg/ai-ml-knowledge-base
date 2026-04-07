@@ -113,6 +113,12 @@ GPT is designed to generate language. Unlike BERT, it reads strictly from left-t
 
 The task that was used to train BERT was not as much as GPT related to generating new text and new content.
 
+### GPT History 
+ 
+ - GPT-1 used just a foundational model and performed already better on text-bound tasks than specialized models without the architecture being specialized for the task at hand 
+ -  GPT-2 increased only the size of the training data, so more data in the training corpus to outperform GPT-1 and a lot of other models on downstream tasks.
+	 - Tasks that require text understanding but not in particular the generation of text 
+
 ## Bitter lesson (Rich Sutton)
 
 **Core Thesis:** In the long run, the only thing that matters in AI is leveraging **computation**. Human-designed "tricks," rules, and specialized knowledge (heuristics) consistently lose to general-purpose methods that scale with Moore's Law.
@@ -291,6 +297,9 @@ Retrieve Augmented Generation is a technique to preselect a knowledge or content
 ## Information representation
 
 ### Vector Database
+Saves data as preprocessed vectors usually in chunks to reduce the information loss on transforming the data into a vector. 
+
+TODO: What is the reason for chunking and the max text size when the text gets anyway transformed in a uniform vector? 
 
 ### RAG Graph
 
@@ -351,11 +360,33 @@ But expensive at scale and the context window limits the potential candidates th
 
 #### Commercial ReRanking APIs
 Jina Reranker, Cohere Rerank, Voyage AI
+
+# Training of DL 
+## Supervised Learning
+
+The data set used is labeled. 
+Process: 
+- Sampling from the data set, predicting labels, computing loss (prediction vs ground truth), Back propagating the changes through the weights and update the weights accordingly
+
+## Unsupervised Learning
+
+it's easier to scale because you don't need a huge data set of labeled information that usually needed to be labeled by hand initially. Unsupervised learning is mostly used and only usable in cases where the algorithm or model should analyze the dataset to find particular patterns, categories, or segmentations inside the dataset. 
+## Self Supervised Learning 
+
+- The dataset is just text and the model is predicting the next token or missing tokens from the dataset
+
 # Learning of LLMs 
+
+3 step process
+Pre training -> SFT -> RLHF  and step 2 and 3 are usually called Alignment 
 
 ## Pre Training
 
+Massive unstructured and unsorted corpus of data is used to learn the model to predict the next token on a specific task. The model gets the sequence of tokens from t0 to tn and needs to predict the tn+1 token.
+
 ## Alignment 
+
+SFT and RLHF are used to align the model to human preferences.
 
 ### SFT - Supervised Fine Tuning
 
@@ -363,20 +394,39 @@ Jina Reranker, Cohere Rerank, Voyage AI
 - Decoder only transfomers 
 	- Originally encoder processes input and decoder generates outputs 
 	- -> Used by nearly any LLM nowadays
-- Downstream tasks like fine truning or zero 
+- Downstream tasks like fine tuning or zero shot inference are used for training to make it more usable in practice
+- Improvement of the model by increasing the overall amount of data
 
 ### Reinforcement Learning 
 
 Usually this is done based on Human Feedback (RLHF) 
 - Model produces some text and gets feedback as a score or reward from a human co-notator
+- For RLHF usually a reward model is trained which is based on sampled outputs from the model that got labeled by humans to train a reward model to predict the quality of the output for a bigger scale training 
 
-## Post Training 
+### PEFT - Parameter Efficient Fine Tuning
 
-## Supervised Learning
+Part of the weights are frozen when doing the post training. Prevents catastrophically forgetting.
 
-The data set used is labeled. 
-Process: 
-- Sampling from the data set, predicting labels, computing loss (prediction vs ground truth), Back propagating the changes through the weights and update the weights accordingly
-## Self Supervised Learning 
+### Imitation Learning 
 
-- The dataset is just text and the model is predicting the next token or missing tokens from the dataset
+- using a proprietary model to generate a dataset to train a open weight model
+- SFT + Imitation learning seem to have decent results 
+- But using a smaller and highly curated data set to train results also in very good results
+
+### Reinforcement Learning with verifiable results 
+
+- Relative policy optimization
+- Designed algorithm for math and coding problems 
+- It doesn't use a value function but a generates multiple answers and scores them against each other with a reward model and takes the average to decide for better answers
+- It is a variant of PPO proximal policy optimization
+
+# Further concepts, ideas and terms 
+
+## Collapsing
+
+## Catastrophical forgetting 
+
+Phenomena that a model forgets how to do task 1 after trained on task 2.
+## Data efficiency
+
+How much data does a model need to learn a specific task? A human need fairly few data points to learn a specific task in comparison with a model.

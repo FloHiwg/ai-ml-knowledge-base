@@ -11,10 +11,14 @@
             "id": "5a0dda95f4b60122",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "ML AI Engineering Cheat Sheet"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for ML AI Engineering Cheat Sheet"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from ML AI Engineering Cheat Sheet"
             }
           },
           {
@@ -150,20 +156,21 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of ML AI Engineering Cheat Sheet"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,18 +185,36 @@
   },
   "active": "5a0dda95f4b60122",
   "lastOpenFiles": [
+    "knowledge-base/summaries/Applying Statistics to LLM Evaluations.md",
+    "knowledge-base/summaries/Language Model Training and Inference From Concept to Code.md",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations.md",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffec984b4-30fc-4a0b-9f41-420b04304b18_1413x566.png",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffac4926a-e9a9-4b85-a3eb-47d7a327515c_2148x1406.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff97d7c72-6434-4015-b8ce-71b44913be18_1849x1022.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff9780ab6-6120-4c2a-a52a-3c381dbc816a_2434x1050.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff77e8f45-d6d9-4588-a068-70a5616bec1f_1854x434.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff61bf6c4-b793-4403-818b-497765b377dc_989x590.png",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff52c27e7-c025-4498-b68a-b493045dc957_1710x867.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3400c02-a7e0-4d19-bcb1-604881039c3b_1958x578.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe8f66323-e52f-4aeb-adcc-4189318d419b_848x616.png",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde650f22-73f5-4068-809f-ddb9dc130beb_2256x627.jpeg",
+    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations",
+    "knowledge-base/summaries/The Anatomy of an LLM Benchmark.md",
+    "knowledge-base/manual",
+    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark.md",
+    "knowledge-base/raw/articles/Direct Preference Optimization (DPO).md",
+    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark",
+    "knowledge-base/summaries/Graph-Based Prompting and Reasoning with Language Models.md",
+    "knowledge-base/summaries/Direct Preference Optimization (DPO).md",
+    "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+    "knowledge-base/summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
+    "knowledge-base/summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
+    "knowledge-base/summaries/The Bitter Lesson.md",
+    "knowledge-base/summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
+    "knowledge-base/raw/articles/The Bitter Lesson.md",
+    "knowledge-base/summaries",
     "knowledge-base/raw/articles/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
     "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffb9d0144-3952-42db-8382-8e2eb37d917e_1670x640.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff751858f-6f68-4f30-a7ba-d4c1ac13a4b4_1618x654.png",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6bb96f2-21f3-4862-9870-0864c706e0ff_1980x1260.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb5dd2fe9-0f4d-40d7-bc83-f00da6592de9_2396x466.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa20e2f81-368f-444a-b7a6-b8ffe7dac581_1836x1034.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F97eb6108-8b95-47a1-965e-85e8390d70b4_1892x672.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8fbd7695-b32e-49a5-9d8b-dac180c767a1_1274x676.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e5666f4-b294-40ad-8fa6-72f5c68e2f53_2210x1328.jpeg",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F73f5f528-93c4-4b1c-a212-b7b567e4bb32_1396x968.png",
-    "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F680ffa81-7b96-474f-832b-4be758e8d2e6_1176x638.jpeg",
     "knowledge-base/raw/articles/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models",
     "knowledge-base/raw/Language Model Training and Inference From Concept to Code.md",
     "knowledge-base/raw/articles/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
@@ -197,17 +222,12 @@
     "knowledge-base/raw/articles/Language Model Training and Inference From Concept to Code",
     "knowledge-base/raw/articles/Graph-Based Prompting and Reasoning with Language Models.md",
     "knowledge-base/raw/articles/Graph-Based Prompting and Reasoning with Language Models",
-    "knowledge-base/raw/articles/Direct Preference Optimization (DPO).md",
     "knowledge-base/raw/articles/Direct Preference Optimization (DPO)",
     "README.md",
     "knowledge-base/raw/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D..md",
     "knowledge-base/raw/books/Transformers Learn In-Context by Gradient Descent.pdf",
     "knowledge-base/raw/books/RLSR.pdf",
-    "knowledge-base/raw/books/Agentic Design Patterns.pdf",
     "knowledge-base/raw/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models.md",
-    "knowledge-base/raw/slides_and_lectures",
-    "knowledge-base/raw/untitled folder",
-    "knowledge-base/raw/articles",
     "knowledge-base/raw/Vision Transformers - by Cameron R. Wolfe, Ph.D..md",
     "knowledge-base/raw/Graph-Based Prompting and Reasoning with Language Models.md",
     "knowledge-base/raw/Direct Preference Optimization (DPO).md"
