@@ -420,9 +420,22 @@ Part of the weights are frozen when doing the post training. Prevents catastroph
 - It doesn't use a value function but a generates multiple answers and scores them against each other with a reward model and takes the average to decide for better answers
 - It is a variant of PPO proximal policy optimization
 
+### GRPO — Group Relative Policy Optimization
+
+The RL algorithm used by DeepSeek-R1. Alternative to PPO:
+
+- **No critic model** (PPO uses a value network the same size as the policy — expensive)
+- Generate a group of K responses → compare them relative to each other → reward the better ones
+- Cheaper and simpler than PPO with competitive performance
+
+The trend: RL algorithms for LLMs are simplifying (PPO → GRPO → REINFORCE variants) while RL training scale increases.
+
+
 # Further concepts, ideas and terms 
 
 ## Collapsing
+
+ This is when LLMs start to reproduce over and over the same content even though they are trained on an immense variety of different content. They have a tendency at one point to collapse to the same. When you ask 50 something questions, it could happen that you get the same answer over and over again and there is not that much diversity in the answer 
 
 ## Catastrophical forgetting 
 
@@ -430,3 +443,7 @@ Phenomena that a model forgets how to do task 1 after trained on task 2.
 ## Data efficiency
 
 How much data does a model need to learn a specific task? A human need fairly few data points to learn a specific task in comparison with a model.
+
+## Scaling 
+
+AI scaling was at first limited by the amount of data used for pretraining especially GPT 1 and 2 were heavily scaled and limited by this factor. Afterwards it is about fine tuning and the fine tuning data in terms of SFT where humans need to collect and curate a data set that contains specified the way how the LLM should behave. 
