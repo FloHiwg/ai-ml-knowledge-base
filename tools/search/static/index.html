@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knowledge Base Search</title>
+    <style>
+      :root {
+        --bg: #101418;
+        --panel: rgba(22, 29, 35, 0.94);
+        --panel-strong: rgba(28, 37, 45, 0.98);
+        --border: rgba(129, 161, 193, 0.18);
+        --border-active: rgba(166, 209, 137, 0.48);
+        --text: #edf3f7;
+        --muted: #8ea0ae;
+        --accent: #a6d189;
+        --accent-strong: #8ac36d;
+        --chip: rgba(112, 181, 192, 0.14);
+        --shadow: 0 30px 70px rgba(0, 0, 0, 0.36);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(112, 181, 192, 0.18), transparent 32%),
+          radial-gradient(circle at top right, rgba(166, 209, 137, 0.15), transparent 28%),
+          linear-gradient(180deg, #0c1014 0%, #13191f 100%);
+        color: var(--text);
+        font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 56px 20px 72px;
+      }
+
+      .shell {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        backdrop-filter: blur(16px);
+      }
+
+      .search-bar {
+        padding: 24px 24px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .input-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        background: rgba(8, 12, 16, 0.36);
+        padding: 16px 18px;
+        transition: border-color 140ms ease, transform 140ms ease;
+      }
+
+      .input-row:focus-within {
+        border-color: var(--border-active);
+        transform: translateY(-1px);
+      }
+
+      .search-icon {
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+
+      #query {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: var(--text);
+        font: inherit;
+        font-size: 1.1rem;
+      }
+
+      #query::placeholder {
+        color: #70808d;
+      }
+
+      .filters {
+        display: flex;
+        gap: 12px;
+        padding-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      .filter {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .filter input {
+        accent-color: var(--accent);
+      }
+
+      .status-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      #results {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .empty {
+        padding: 42px 22px 52px;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      .result {
+        background: rgba(11, 15, 19, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        padding: 18px;
+        transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+      }
+
+      .result:hover,
+      .result.active {
+        transform: translateY(-2px);
+        border-color: var(--border-active);
+        background: var(--panel-strong);
+      }
+
+      .result-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+
+      .path {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+        font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: var(--chip);
+        color: #9dd7e0;
+        text-transform: lowercase;
+      }
+
+      .score {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .title {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 1.04rem;
+        font-weight: 650;
+      }
+
+      .title:hover {
+        color: var(--accent);
+      }
+
+      .snippet {
+        color: #d6e0e8;
+        line-height: 1.6;
+        margin: 10px 0 16px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .open-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent);
+        text-decoration: none;
+        border: 1px solid rgba(166, 209, 137, 0.24);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 0.92rem;
+      }
+
+      .open-link:hover {
+        background: rgba(166, 209, 137, 0.08);
+        border-color: rgba(166, 209, 137, 0.4);
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding: 24px 12px 48px;
+        }
+
+        .search-bar,
+        .status-row {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        #results {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="shell">
+        <div class="search-bar">
+          <div class="input-row">
+            <span class="search-icon">⌕</span>
+            <input
+              id="query"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Search the vault by meaning..."
+            />
+          </div>
+          <div class="filters">
+            <label class="filter"><input type="checkbox" name="section" value="wiki" checked /> wiki</label>
+            <label class="filter"><input type="checkbox" name="section" value="summary" checked /> summaries</label>
+            <label class="filter"><input type="checkbox" name="section" value="manual" checked /> manual</label>
+          </div>
+        </div>
+        <div class="status-row">
+          <span id="modeLabel">Type to search</span>
+          <span id="metaLabel">Semantic search, local only</span>
+        </div>
+        <div id="results">
+          <div class="empty">Search for a concept, paper, or topic and jump straight into Obsidian.</div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const queryInput = document.getElementById("query");
+      const resultsRoot = document.getElementById("results");
+      const modeLabel = document.getElementById("modeLabel");
+      const metaLabel = document.getElementById("metaLabel");
+      const filterInputs = Array.from(document.querySelectorAll("input[name='section']"));
+
+      let debounceHandle = null;
+      let latestResults = [];
+      let activeIndex = -1;
+      let currentRequest = 0;
+
+      function selectedFilters() {
+        return filterInputs.filter((input) => input.checked).map((input) => input.value);
+      }
+
+      function escapeHtml(value) {
+        return value
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      function updateActiveCard() {
+        document.querySelectorAll(".result").forEach((element, index) => {
+          element.classList.toggle("active", index === activeIndex);
+        });
+      }
+
+      function renderEmpty(message) {
+        latestResults = [];
+        activeIndex = -1;
+        resultsRoot.innerHTML = `<div class="empty">${escapeHtml(message)}</div>`;
+      }
+
+      function scoreLabel(result) {
+        if (result.match_type === "keyword" || result.score === null) {
+          return "keyword";
+        }
+        return `${Math.max(0, Math.round(result.score * 100))}%`;
+      }
+
+      function renderResults(payload) {
+        latestResults = payload.results || [];
+        activeIndex = latestResults.length ? 0 : -1;
+
+        if (!latestResults.length) {
+          renderEmpty("No matching notes found for this query and filter set.");
+          return;
+        }
+
+        resultsRoot.innerHTML = latestResults
+          .map(
+            (result, index) => `
+              <article class="result ${index === activeIndex ? "active" : ""}" data-index="${index}">
+                <div class="result-top">
+                  <div class="path">
+                    <span>${escapeHtml(result.file_path)}</span>
+                    <span class="tag">${escapeHtml(result.section_type)}</span>
+                  </div>
+                  <span class="score">${escapeHtml(scoreLabel(result))}</span>
+                </div>
+                <a class="title" href="${result.obsidian_url}">${escapeHtml(result.section_title)}</a>
+                <div class="snippet">${escapeHtml(result.snippet)}</div>
+                <div class="actions">
+                  <a class="open-link" href="${result.obsidian_url}">Open in Obsidian</a>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+
+        document.querySelectorAll(".result").forEach((element) => {
+          element.addEventListener("mouseenter", () => {
+            activeIndex = Number(element.dataset.index);
+            updateActiveCard();
+          });
+        });
+      }
+
+      async function runSearch(force = false) {
+        const query = queryInput.value.trim();
+        const filters = selectedFilters();
+
+        if (!query) {
+          modeLabel.textContent = "Type to search";
+          metaLabel.textContent = "Semantic search, local only";
+          renderEmpty("Search for a concept, paper, or topic and jump straight into Obsidian.");
+          return;
+        }
+
+        if (!filters.length) {
+          renderEmpty("Enable at least one filter to search the index.");
+          modeLabel.textContent = "Filters disabled";
+          metaLabel.textContent = "No sections selected";
+          return;
+        }
+
+        currentRequest += 1;
+        const requestId = currentRequest;
+        modeLabel.textContent = "Searching...";
+        metaLabel.textContent = force ? "Manual refresh" : "Debounced query";
+
+        const response = await fetch("/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query, filters, top_k: 10 }),
+        });
+
+        if (!response.ok) {
+          const message = await response.text();
+          throw new Error(message || "Search request failed");
+        }
+
+        const payload = await response.json();
+        if (requestId !== currentRequest) {
+          return;
+        }
+
+        modeLabel.textContent = payload.mode === "keyword" ? "Keyword fallback" : "Semantic results";
+        metaLabel.textContent = `${payload.total} result${payload.total === 1 ? "" : "s"} in ${payload.took_ms} ms`;
+        renderResults(payload);
+      }
+
+      function scheduleSearch(force = false) {
+        window.clearTimeout(debounceHandle);
+        const delay = force ? 0 : 300;
+        debounceHandle = window.setTimeout(() => {
+          runSearch(force).catch((error) => {
+            renderEmpty("Search failed. Check that the index exists and the server dependencies are installed.");
+            modeLabel.textContent = "Search error";
+            metaLabel.textContent = error.message;
+          });
+        }, delay);
+      }
+
+      function openActiveResult() {
+        const result = latestResults[activeIndex] || latestResults[0];
+        if (result) {
+          window.location.href = result.obsidian_url;
+        }
+      }
+
+      queryInput.addEventListener("input", () => scheduleSearch(false));
+      queryInput.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowDown" && latestResults.length) {
+          event.preventDefault();
+          activeIndex = Math.min(latestResults.length - 1, activeIndex + 1);
+          updateActiveCard();
+        } else if (event.key === "ArrowUp" && latestResults.length) {
+          event.preventDefault();
+          activeIndex = Math.max(0, activeIndex - 1);
+          updateActiveCard();
+        } else if (event.key === "Enter") {
+          event.preventDefault();
+          if (latestResults.length) {
+            openActiveResult();
+          } else {
+            scheduleSearch(true);
+          }
+        }
+      });
+
+      filterInputs.forEach((input) => input.addEventListener("change", () => scheduleSearch(true)));
+      queryInput.focus();
+    </script>
+  </body>
+</html>

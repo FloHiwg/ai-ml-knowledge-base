@@ -49,7 +49,47 @@ Eventually: Q&A against the wiki, linting for inconsistencies, and generating ou
 - [ ] Generate suggestions for new article candidates based on gaps and unexplored connections
 
 ### Tooling
-- [ ] Build a lightweight search interface over the wiki, usable both directly and as a tool handed off to an LLM
+- [x] Build a lightweight search interface over the wiki, usable both directly and as a tool handed off to an LLM
+
+## Search Interface
+
+A local semantic search app lives under `tools/search/`. It indexes the wiki, summaries, and manual notes using sentence embeddings, stores them in SQLite, and serves a web UI with deep links back into Obsidian.
+
+### Setup
+
+**1. Install dependencies** (Python 3.10+ required)
+
+```bash
+pip install -r tools/search/requirements.txt
+```
+
+**2. Build the index**
+
+```bash
+python3 tools/search/index.py
+```
+
+Chunks all `.md` files in `wiki/`, `summaries/`, and `manual/` by section, embeds them with `all-MiniLM-L6-v2`, and writes to `tools/search/search.db`. First run takes ~10s; subsequent runs only re-embed changed files.
+
+To force a full rebuild:
+
+```bash
+python3 tools/search/index.py --rebuild
+```
+
+**3. Start the server**
+
+```bash
+python3 tools/search/server.py
+```
+
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000). Results link directly into Obsidian via `obsidian://` deep links — make sure the vault is open in Obsidian first.
+
+### Notes
+
+- `search.db` is gitignored — regenerate locally after cloning
+- The model (~80MB) downloads automatically on first run and is cached in `~/.cache/huggingface/`
+- To re-index on server startup: `SEARCH_REINDEX_ON_STARTUP=1 python3 tools/search/server.py`
 
 ### Future
 - [ ] Explore synthetic data generation + fine-tuning so the LLM "knows" the knowledge base in its weights rather than just its context

@@ -1,3 +1,9 @@
 knowledge-base/raw/books/*
 */.DS_Store
 .DS_Store
+tools/search/search.db
+tools/search/search.db-shm
+tools/search/search.db-wal
+tools/search/__pycache__/
+tests/__pycache__/
+.venv-search/
