@@ -32,8 +32,8 @@ Eventually: Q&A against the wiki, linting for inconsistencies, and generating ou
 - [x] Fix broken image references so the local markdown renders correctly
 
 ### Wiki compilation
-- [ ] Establish a repeatable LLM workflow to incrementally compile raw sources into the wiki (summaries, concept articles, backlinks)
-- [ ] Auto-maintain an index and brief per-document summaries to support Q&A without needing retrieval infrastructure
+- [x] Establish a repeatable LLM workflow to incrementally compile raw sources into the wiki (summaries, concept articles, backlinks)
+- [x] Auto-maintain an index and brief per-document summaries to support Q&A without needing retrieval infrastructure
 
 ### Q&A
 - [ ] Test complex multi-document questions against the wiki once it reaches meaningful size
@@ -93,3 +93,28 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000). Results link directly into 
 
 ### Future
 - [ ] Explore synthetic data generation + fine-tuning so the LLM "knows" the knowledge base in its weights rather than just its context
+
+---
+
+## LLM Skills (Claude Code)
+
+Claude Code skills live under `.claude/skills/` and automate recurring workflows. Invoke them by typing `/skill-name <argument>` in a Claude Code session.
+
+### `/process-article <path-to-article>`
+
+Ingests a raw source file (markdown article, PDF, etc.) into the knowledge base end-to-end:
+
+1. **Fix images** — repairs broken URL-encoded image paths in clipped markdown
+2. **Read** — reads the full source (chunked if long)
+3. **Summarise** — writes a structured summary to `knowledge-base/summaries/<Title>.md` with sections, tables, formulas, and wikilinks
+4. **Identify wiki pages** — finds which existing wiki pages the article's concepts belong to
+5. **Update wiki pages** — adds new content and backlinks to affected pages
+6. **New wiki page** — creates a new page if the article introduces a concept cluster with no existing home
+7. **Update wiki index** — adds the new page to `knowledge-base/wiki/index.md`
+8. **Update Q&A index** — adds/updates a brief entry in `knowledge-base/qa-index.md`, a compact master index loadable in a single LLM context for Q&A without retrieval infrastructure
+9. **Report** — lists all files created or modified
+
+**Example:**
+```bash
+/process-article knowledge-base/raw/articles/My Article.md
+```

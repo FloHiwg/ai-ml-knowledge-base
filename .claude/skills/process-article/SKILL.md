@@ -152,10 +152,45 @@ If a new wiki page was created in Step 6, add it to `knowledge-base/wiki/index.m
 
 ---
 
-## Step 8 — Report
+## Step 8 — Update the Q&A index
+
+Maintain `knowledge-base/qa-index.md` — a master index of all processed sources, kept compact enough to load in a single LLM context for Q&A without retrieval infrastructure.
+
+### If the file does not exist yet, create it with this header:
+
+```markdown
+# Knowledge Base Q&A Index
+
+A compact index of all processed sources. Loaded in full for Q&A — keep each entry brief.
+
+---
+```
+
+### Add or update the entry for the newly processed article:
+
+```markdown
+## <Article Title>
+
+**File:** `summaries/<Article Title>.md`  
+**Type:** article | book | paper | manual  
+**Topics:** tag1, tag2, tag3
+
+<2–3 sentence description of what this source covers and why it matters. Be specific — name the key technique, finding, or framework it introduces.>
+```
+
+### Rules:
+- One entry per source — if the source was processed before, update the existing entry rather than adding a duplicate
+- Keep each entry under 100 words
+- Topics should be 3–6 short tags matching the wiki taxonomy (e.g. `fine-tuning`, `RLHF`, `multi-agent`, `memory`)
+- Do not include full content or summaries — the purpose is navigability and context, not completeness
+
+---
+
+## Step 9 — Report
 
 Summarise what was done:
 - Path of the summary file created
 - Number of wiki pages updated (list them)
 - New wiki page created (if any)
 - Image fixes applied (if any)
+- Q&A index entry added or updated
