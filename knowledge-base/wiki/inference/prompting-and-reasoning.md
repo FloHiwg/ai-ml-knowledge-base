@@ -1,7 +1,7 @@
 # Prompting and Reasoning Strategies
 
-**Related:** [[inference/decoding-strategies]] · [[architecture/graph-neural-networks]] · [[training/fine-tuning]] · [[concepts/agi-and-intelligence]]  
-**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
+**Related:** [[inference/decoding-strategies]] · [[architecture/graph-neural-networks]] · [[training/fine-tuning]] · [[concepts/agi-and-intelligence]] · [[applications/agentic-patterns]]
+**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]] · [[summaries/Andrej Karpathy — AGI is still a decade away]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]]
 
 ---
 
@@ -107,6 +107,39 @@ Generation:   thought_A → [branch_1, branch_2]    (expand)
 | Graph role | Encodes entity relationships in the *input* | Models the *reasoning process* |
 | LLM | T5-based | Any causal LLM |
 | Flexibility | Task-specific | General-purpose |
+
+---
+
+## ReAct: Reasoning + Acting
+
+ReAct (Yao et al. 2023) formalizes agents as a **policy** `π` mapping context to actions, with language thoughts as first-class actions:
+
+```
+context = [o_1, a_1, o_2, a_2, ..., o_t]
+a_t = π(context)          # observation → action
+A = {tool_calls} ∪ {language_thoughts}   # expanded action space
+```
+
+The Thought/Action/Observation loop:
+```
+Thought: I need to find the population of France.
+Action: search("France population 2023")
+Observation: France has approximately 68 million people.
+Thought: Now I can answer.
+Action: finish("~68 million")
+```
+
+Thought frequency can be fixed (one thought per action, for reasoning-heavy tasks) or agent-determined (sparse, for high-action decision tasks).
+
+**Performance**: ReAct > Act-only on both HotpotQA/FEVER and AlfWorld/WebShop. CoT outperforms ReAct when hallucination is unlikely; ReAct wins when external grounding matters.
+
+**ReAct + CoT backoff strategies:**
+- **ReAct → CoT**: fall back to CoT if ReAct fails after N steps
+- **CoT → ReAct**: sample multiple CoT answers; invoke ReAct if they disagree
+
+Either direction outperforms using one approach alone.
+
+ReAct is the standard template for tool-using agents — see [[applications/agentic-patterns]].
 
 ---
 

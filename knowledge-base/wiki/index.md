@@ -14,6 +14,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[architecture/vision-transformers]] | ViT, DeiT, CLIP, ViT vs CNN |
 | [[architecture/pre-transformer-architectures]] | CNN, RNN, LSTM, GRU, GAN |
 | [[architecture/graph-neural-networks]] | GCN, GAT, graph-based reasoning |
+| [[architecture/mixture-of-experts]] | MoE layers, routing, load balancing, expert capacity, MLA, MTP, MoE LLMs |
 
 ---
 
@@ -47,6 +48,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 |---|---|
 | [[evaluation/benchmarks]] | MMLU, GPQA, BIG-Bench, IFEval, AlpacaEval, math benchmarks, IRT |
 | [[evaluation/statistical-evaluation]] | Standard errors, CIs, CLT, clustered errors, variance reduction, power analysis |
+| [[evaluation/llm-as-a-judge]] | LLM-as-a-Judge, MT-Bench, Chatbot Arena, AlpacaEval, bias types, G-Eval, RLAIF |
 
 ---
 

@@ -114,6 +114,76 @@ Cameron Wolfe statistical framework for rigorous LLM evaluation: standard errors
 
 ---
 
+## AI Agents from First Principles
+
+**File:** `summaries/AI Agents from First Principles.md`  
+**Type:** article  
+**Topics:** agentic-patterns, ReAct, tool-use, reasoning-models, MCP, multi-agent
+
+Cameron Wolfe's ground-up framework for AI agents. Introduces the Level 0–3 agent spectrum (standard LLM → tool use → problem decomposition → full autonomy), formalizes ReAct as a policy framework (context → action, with language thoughts as first-class actions), covers ReAct+CoT backoff strategies, and identifies "nines of reliability" as the key production bottleneck. Also covers MCP and prior agent work (Inner Monologue, WebGPT, Gato, RAP/MCTS).
+
+---
+
+## LLM Powered Autonomous Agents  Lil'Log
+
+**File:** `summaries/LLM Powered Autonomous Agents  Lil'Log.md`  
+**Type:** article  
+**Topics:** agentic-patterns, planning, memory, tool-use, ReAct, Reflexion
+
+Lilian Weng's foundational 2023 survey establishing the three-component agent model: Planning (CoT, ToT, ReAct, Reflexion), Memory (human memory taxonomy mapped to LLM components; ANN/MIPS algorithms: LSH, ANNOY, HNSW, FAISS, ScaNN), and Tool Use (MRKL, Toolformer, HuggingGPT). Case studies: ChemCrow (tools can't self-evaluate expert domains) and Generative Agents (25 virtual characters with memory stream, reflection, and retrieval).
+
+---
+
+## Building Multi-Agent Systems (Part 3) - by Shrivu Shankar
+
+**File:** `summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar.md`  
+**Type:** article  
+**Topics:** multi-agent, agentic-patterns, context-engineering, sandboxes, tool-use
+
+January 2026 practitioner update on how multi-agent architecture has converged: Planner + Execution Agent + ephemeral Task Agents, all in a VM sandbox. Introduces the "code-first" paradigm (agents solve non-coding problems by writing scripts), domain-agnostic harnesses, API/Mount tool design, context engineering (progressive disclosure, indirection, simplification), and three long-context management techniques (TODOs, reminders, automated compaction).
+
+---
+
+## A Practitioners Guide to Retrieval Augmented Generation (RAG)
+
+**File:** `summaries/A Practitioners Guide to Retrieval Augmented Generation (RAG).md`  
+**Type:** article  
+**Topics:** RAG, retrieval, vector-search, hybrid-search, evaluation, hallucination
+
+Cameron Wolfe practitioner-focused guide to RAG: pipeline stages (cleaning/chunking → indexing → hybrid retrieval → generation), the original RAG paper (Lewis et al. 2020, DPR + BART), RAG vs finetuning for knowledge injection (RAG wins), the lost-in-the-middle context layout problem, RAGAS evaluation framework (faithfulness, answer relevance, context relevance), and iterative improvement tactics.
+
+---
+
+## Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.
+
+**File:** `summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D..md`  
+**Type:** article  
+**Topics:** evaluation, llm-as-a-judge, benchmarks, bias, RLAIF, alignment
+
+Cameron Wolfe deep-dive on LLM-as-a-Judge: using a powerful LLM to evaluate other models' outputs. Covers three prompt setups (pairwise, pointwise, reference-guided), key benchmarks (MT-Bench, Chatbot Arena, AlpacaEval/length-controlled), three core biases (position, verbosity, self-enhancement) and mitigation strategies, G-Eval (Auto-CoT + logprob weighting), specialized judge models (Prometheus), and RLAIF (LLM judge as training signal for RLHF).
+
+---
+
+## Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.
+
+**File:** `summaries/Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D..md`  
+**Type:** article  
+**Topics:** MoE, architecture, routing, sparsity, scaling, DeepSeek, Mixtral
+
+Cameron Wolfe deep-dive on MoE-based LLMs: replaces FFN layers with N expert FFNs + a top-K router, decoupling parameter count from compute. Covers routing collapse and three auxiliary losses (importance, load balancing, router z-loss), expert capacity, shared experts (DeepSeek), fine-grained experts (DBRX), and five models: Mixtral 8×7B, Grok-1, DBRX, OpenMoE, DeepSeek-v2/v3. Key DeepSeek innovations: MLA (93% KV cache reduction), MTP training objective, FP8 training, auxiliary-loss-free load balancing.
+
+---
+
+## Experimenting with LLMs to Research, Reflect, and Plan
+
+**File:** `summaries/Experimenting with LLMs to Research, Reflect, and Plan.md`  
+**Type:** article  
+**Topics:** RAG, retrieval, chunking, hybrid-search, embeddings, agentic-patterns
+
+Eugene Yan's practitioner account (Apr 2023) of building LLM tools on LangChain/Discord, exposing four concrete retrieval failures: sub-optimal ANN tuning (risk: ~50% recall), poor embedding domain transfer (fix: triplet loss fine-tuning), fixed-size chunking producing muddy embeddings (fix: chunk by sections/paragraphs), and embedding-only retrieval phrasing sensitivity (fix: hybrid BM25+semantic + query expansion + reranking). Core framing: LLMs are reasoning engines, not fact databases.
+
+---
+
 ## Andrej Karpathy — AGI is still a decade away
 
 **File:** `summaries/Andrej Karpathy — AGI is still a decade away.md`  

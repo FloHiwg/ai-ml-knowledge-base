@@ -1,7 +1,7 @@
 # Statistical Evaluation of LLMs
 
-**Related:** [[evaluation/benchmarks]]  
-**Sources:** [[summaries/Applying Statistics to LLM Evaluations]]
+**Related:** [[evaluation/benchmarks]] · [[evaluation/llm-as-a-judge]]  
+**Sources:** [[summaries/Applying Statistics to LLM Evaluations]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]]
 
 ---
 
@@ -132,6 +132,18 @@ Define SNR = signal / noise where:
 Practical tips from SNR analysis:
 - Select high-SNR sub-tasks from large benchmarks (16 of 57 MMLU tasks → improved reliability + 3× cheaper)
 - Average scores over last `n` training checkpoints to smooth training noise
+
+---
+
+## Relationship to LLM-as-a-Judge
+
+Statistical rigor applies equally when using LLM judges. Key considerations:
+- LLM judge scores are still random variables — report SE and CIs, not just win-rates
+- AlpacaEval uses logprob-weighted scoring (continuous scores) which reduces within-question variance, consistent with the token-probability recommendation above
+- Position switching (scoring both orderings, averaging) is a variance-reduction technique specific to pairwise LLM evaluation — analogous to resampling
+- Clustered SEs may be appropriate when many prompts share a topic or style
+
+See [[evaluation/llm-as-a-judge]] for full treatment of LLM-as-a-Judge methodology.
 
 ---
 

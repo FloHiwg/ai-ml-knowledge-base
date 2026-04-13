@@ -1,7 +1,7 @@
 # Pretraining
 
 **Related:** [[training/tokenization]] · [[training/fine-tuning]] · [[training/distributed-training]] · [[concepts/foundation-models]] · [[concepts/scaling-and-the-bitter-lesson]] · [[concepts/agi-and-intelligence]]  
-**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
+**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Andrej Karpathy — AGI is still a decade away]] · [[summaries/Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.]]
 
 ---
 
@@ -93,6 +93,21 @@ See [[training/fine-tuning]] for SFT, RLHF, and DPO.
 | Coverage | Task-specific | General |
 
 Self-supervised pretraining is what enables the [[concepts/scaling-and-the-bitter-lesson|Bitter Lesson]] dynamic in NLP: scale data + compute → performance improves without bound.
+
+---
+
+## Multi-Token Prediction (MTP)
+
+An extension of the standard next-token prediction objective introduced by DeepSeek-v3. Instead of predicting only x_{t+1} from context x_{1..t}, MTP predicts D future tokens sequentially:
+
+```
+standard NTP:  predict x_{t+1}
+MTP (D=2):     predict x_{t+1}, then x_{t+2}, using the same context x_{1..t}
+```
+
+Additional lightweight modules attached to the model produce the extra predictions. Cross-entropy loss is applied across all D predictions. Richer training signal → improved efficiency (more learning per token seen) and better final performance.
+
+**Post-training:** the MTP modules are discarded; only the main model is kept. MTP modules can also enable speculative decoding at inference time.
 
 ---
 

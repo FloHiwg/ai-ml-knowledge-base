@@ -1,7 +1,7 @@
 # Transformer Architecture
 
 **Related:** [[architecture/attention]] · [[architecture/positional-embeddings]] · [[training/pretraining]] · [[training/fine-tuning]] · [[inference/decoding-strategies]]  
-**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D.]]
+**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.]]
 
 ---
 
@@ -82,6 +82,16 @@ n_embd     = 768    # d_model
 | Positional encoding | Learned (GPT-2) or RoPE (newer) | RoPE better for length generalization |
 | Weight tying | Yes (most LLMs) | Reduces params, improves performance |
 | Residual connections | Around both sub-layers | Enables very deep networks |
+
+---
+
+## Mixture-of-Experts (MoE) Modification
+
+The most significant architectural modification to the decoder-only transformer is replacing FFN layers with **MoE layers**. Each MoE layer contains N independent FFNs ("experts") plus a learned router that selects only K experts per token, keeping compute proportional to K·FFN cost rather than N·FFN cost.
+
+Key tradeoff: total parameters scale with N (requiring more GPU memory to store), but FLOPs per token remain constant. This enables significantly larger models at the same inference compute budget.
+
+See [[architecture/mixture-of-experts]] for the full MoE reference page.
 
 ---
 

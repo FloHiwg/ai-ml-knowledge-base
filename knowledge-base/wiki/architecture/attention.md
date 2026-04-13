@@ -1,7 +1,7 @@
 # Attention Mechanism
 
 **Related:** [[architecture/transformer]] · [[architecture/vision-transformers]] · [[architecture/graph-neural-networks]]  
-**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D.]]
+**Sources:** [[summaries/Language Model Training and Inference From Concept to Code]] · [[summaries/Vision Transformers - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.]]
 
 ---
 
@@ -87,6 +87,23 @@ In ViT, the "tokens" are image patches. Attention operates over patches instead 
 ## Computational Complexity
 
 Standard attention is `O(n²)` in sequence length — every token attends to every other. This is why context windows were historically capped (1K–8K) and why efficient attention variants (FlashAttention, sparse attention) exist.
+
+---
+
+## Efficient Attention Variants
+
+Standard MHA has O(n²) complexity and stores full K and V tensors per layer per token in the KV cache. Several variants reduce this cost:
+
+| Variant | Mechanism | KV cache reduction |
+|---|---|---|
+| **Multi-Query Attention (MQA)** | Single K/V head shared across all Q heads | Large |
+| **Grouped-Query Attention (GQA)** | K/V heads shared within groups of Q heads | Moderate; used in Mistral/Mixtral |
+| **Sliding Window Attention (SWA)** | Attention over fixed local window; stacked layers expand effective context | Reduces per-layer compute |
+| **Multi-head Latent Attention (MLA)** | Low-rank joint projection stores a single latent vector; upsampled at inference to recover K/V | 93% KV cache reduction vs 67B dense |
+
+MLA (DeepSeek-v2) is the most aggressive: K/V projections are computed from a compressed latent vector that is stored instead of the full K/V matrices. At inference, one linear projection restores the full representations. No significant accuracy cost observed.
+
+See [[architecture/mixture-of-experts]] for the MoE context where MLA appears.
 
 ---
 

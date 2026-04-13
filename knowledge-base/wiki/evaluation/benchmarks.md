@@ -1,7 +1,7 @@
 # LLM Benchmarks
 
-**Related:** [[evaluation/statistical-evaluation]] · [[concepts/scaling-and-the-bitter-lesson]]  
-**Sources:** [[summaries/The Anatomy of an LLM Benchmark]]
+**Related:** [[evaluation/statistical-evaluation]] · [[evaluation/llm-as-a-judge]] · [[concepts/scaling-and-the-bitter-lesson]]  
+**Sources:** [[summaries/The Anatomy of an LLM Benchmark]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]]
 
 ---
 
@@ -67,7 +67,9 @@ Focus: **objectively verifiable** instruction following (word count, format, str
 
 ### AlpacaEval (Dubois et al. 2024)
 
-Pairwise instruction following: LLM judge (GPT-4-Turbo) compares candidate to reference model, reports win rate. 805 prompts combining multiple instruction-following datasets. Improvements focused on reference/judge model quality to better correlate with human preferences.
+Pairwise instruction following: LLM judge (GPT-4-Turbo) compares candidate to reference model, reports win rate. 805 prompts combining multiple instruction-following datasets. Runs in <3 minutes for <$10.
+
+**Length-Controlled AlpacaEval:** Regression-based debiasing removes the verbosity contribution from win-rate. Achieves Spearman 0.98 correlation with Chatbot Arena — the highest of any automated metric. Cannot be gamed by asking the model to be more verbose. See [[evaluation/llm-as-a-judge]] for full LLM-as-a-Judge context.
 
 ### Math Benchmarks
 
