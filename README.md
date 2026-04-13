@@ -44,7 +44,7 @@ Eventually: Q&A against the wiki, linting for inconsistencies, and generating ou
 - [ ] Try other output formats (slides, visualizations) viewable directly in the knowledge base
 
 ### Linting / health checks
-- [ ] Run LLM health checks to surface inconsistent or conflicting information across articles
+- [x] Run LLM health checks to surface inconsistent or conflicting information across articles
 - [ ] Impute missing data in incomplete articles using web search
 - [ ] Generate suggestions for new article candidates based on gaps and unexplored connections
 
@@ -117,4 +117,23 @@ Ingests a raw source file (markdown article, PDF, etc.) into the knowledge base 
 **Example:**
 ```bash
 /process-article knowledge-base/raw/articles/My Article.md
+```
+
+### `/health-check [topic]`
+
+Reads wiki pages and summaries (full wiki, or scoped to a topic), then produces a structured report at `knowledge-base/health-checks/YYYY-MM-DD.md` covering:
+
+- **Contradictions** — directly opposing claims about the same concept or result
+- **Inconsistent framing** — same concept described with conflicting terminology across pages
+- **Superseded claims** — older wiki content not updated to reflect newer sources
+- **Missing cross-links** — related pages that don't reference each other
+- **Gaps** — concepts mentioned across multiple pages but lacking a dedicated entry
+
+Every finding includes the pages involved and a suggested fix.
+
+**Examples:**
+```bash
+/health-check
+/health-check training/fine-tuning
+/health-check continual learning
 ```
