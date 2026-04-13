@@ -28,6 +28,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[training/optimization]] | Learning rate schedules, gradient clipping, weight initialization |
 | [[training/reasoning-models]] | Long CoT, RLVR, GRPO, DeepSeek-R1, inference-time scaling, distillation |
 | [[training/continual-learning]] | Catastrophic forgetting, RL vs SFT, RL's Razor, on-policy data, EAFT |
+| [[training/peft-and-lora]] | LoRA low-rank decomposition, rank hyperparameter, adapter targets, QLoRA, forgetting prevention |
 
 ---
 
@@ -56,6 +57,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[concepts/scaling-and-the-bitter-lesson]] | The Bitter Lesson, scaling laws, GPT scaling trajectory |
 | [[concepts/foundation-models]] | Pretrain-then-adapt paradigm, transfer learning |
 | [[concepts/agi-and-intelligence]] | AGI timelines, cognitive deficits, cognitive core, model collapse, RL limitations, LLM culture |
+| [[concepts/distillation]] | Knowledge distillation, DeiT distillation token, capability distillation (DeepSeek-R1) — three distinct uses disambiguated |
 
 ---
 

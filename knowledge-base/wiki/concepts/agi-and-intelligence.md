@@ -1,6 +1,6 @@
 # AGI and the Nature of Intelligence
 
-**Related:** [[concepts/scaling-and-the-bitter-lesson]] · [[concepts/foundation-models]] · [[training/pretraining]] · [[training/continual-learning]] · [[training/reasoning-models]]  
+**Related:** [[concepts/scaling-and-the-bitter-lesson]] · [[concepts/foundation-models]] · [[training/pretraining]] · [[training/continual-learning]] · [[training/reasoning-models]] · [[applications/agentic-patterns]]  
 **Sources:** [[summaries/Andrej Karpathy — AGI is still a decade away]]
 
 ---
@@ -160,6 +160,8 @@ Two powerful multi-agent ideas not yet demonstrated convincingly:
 **2. Self-play:** LLMs generating problems for other LLMs to solve, with ever-increasing difficulty. Analogous to AlphaGo's self-play dynamic, or evolution's competitive pressure driving intelligence.
 
 **Why not yet:** Current models are cognitively like savant children — impressive narrow feats, no general cognition. Culture requires the level of general intelligence to know what's worth recording and transmitting.
+
+See [[applications/agentic-patterns]] for the multi-agent collaboration patterns that *are* implemented today (sequential handoff, supervisor, hierarchical) — the gap between those patterns and true LLM culture is the missing general cognition described above.
 
 ---
 

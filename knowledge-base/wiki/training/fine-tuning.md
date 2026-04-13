@@ -40,7 +40,7 @@ Using a stronger proprietary model (e.g., GPT-4) to generate SFT training data f
 
 ### PEFT — Parameter-Efficient Fine-Tuning
 
-Freeze most weights; only fine-tune a small subset (e.g., via LoRA — Low Rank Adaptation). Prevents **catastrophic forgetting** (when training on task B destroys performance on task A). Much cheaper than full fine-tuning.
+Freeze most weights; only fine-tune a small subset (e.g., via LoRA — Low Rank Adaptation). Prevents **catastrophic forgetting** (when training on task B destroys performance on task A). Much cheaper than full fine-tuning. See [[training/peft-and-lora]] for full mechanics.
 
 ### When to Use SFT Alone
 

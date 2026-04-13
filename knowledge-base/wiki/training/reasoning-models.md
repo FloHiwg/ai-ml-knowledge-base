@@ -146,6 +146,8 @@ Verdict: not necessary, but practically valuable when high-quality CoT data is a
 
 ## Distillation: Cheap Reasoning for Small Models
 
+> This is *capability distillation* — distinct from knowledge distillation (KL loss from teacher logits) and DeiT's distillation token. See [[concepts/distillation]] for the full disambiguation.
+
 Take the 800K SFT dataset from Stage 3 of R1's training. Fine-tune smaller base models (Qwen-2.5, LLaMA-3) on it via standard SFT. That's it.
 
 **Results:**
@@ -200,3 +202,4 @@ Take the 800K SFT dataset from Stage 3 of R1's training. Fine-tune smaller base 
 - Long CoT is a trained capability, not just a prompting technique (contrast with [[inference/prompting-and-reasoning]] CoT)
 - Creates new benchmark saturation pressure — see [[evaluation/benchmarks]]
 - Represents a new [[concepts/scaling-and-the-bitter-lesson|scaling law]]: compute at inference time, not just training time
+- RL's on-policy nature — which enables reasoning model training — also naturally prevents catastrophic forgetting; see [[training/continual-learning]]

@@ -1,6 +1,6 @@
 # Continual Learning
 
-**Related:** [[training/fine-tuning]] · [[training/reasoning-models]] · [[concepts/foundation-models]] · [[concepts/agi-and-intelligence]]  
+**Related:** [[training/fine-tuning]] · [[training/peft-and-lora]] · [[training/reasoning-models]] · [[concepts/foundation-models]] · [[concepts/agi-and-intelligence]]  
 **Sources:** [[summaries/Continual Learning with RL for LLMs]] · [[summaries/Andrej Karpathy — AGI is still a decade away]]
 
 ---
@@ -45,7 +45,7 @@ Store a curated subset of prior data; mix it into new-task training. Simple and 
 
 ### Knowledge Distillation
 
-Combine new-task training loss with a distillation loss that penalises the model for drifting from its prior outputs. Keeps representations anchored to prior behaviour.
+Combine new-task training loss with a distillation loss that penalises the model for drifting from its prior outputs. Keeps representations anchored to prior behaviour. See [[concepts/distillation]] for how this differs from capability distillation and DeiT's distillation token.
 
 ### Regularization
 

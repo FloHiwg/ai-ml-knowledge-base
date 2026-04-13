@@ -1,6 +1,6 @@
 # Agentic Patterns
 
-**Related:** [[applications/rag]] · [[inference/prompting-and-reasoning]]  
+**Related:** [[applications/rag]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]]  
 **Sources:** [[manual/ML AI Engineering Cheat Sheet]]
 
 ---

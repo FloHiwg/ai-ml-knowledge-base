@@ -41,9 +41,9 @@ ViT needs **large pretraining datasets** (JFT-300M, ImageNet-21K) to match CNN p
 
 ---
 
-## DeiT — Data-efficient Image Transformers (Touvron et al. 2020)
+## DeiT — Data-efficient Image Transformers (Touvron et al. 2021)
 
-Training ViT without massive proprietary datasets by introducing a **distillation token**.
+Training ViT without massive proprietary datasets by introducing a **distillation token**. See [[concepts/distillation]] for how this differs from knowledge distillation and capability distillation.
 
 ### Distillation Token
 
@@ -61,7 +61,7 @@ A third learnable token (alongside CLS and patch tokens) whose final state is tr
 
 Train two encoders jointly on 400M image-text pairs from the web:
 - **Image encoder:** ViT (or ResNet)
-- **Text encoder:** Transformer
+- **Text encoder:** Decoder-only transformer (masked self-attention)
 
 **Contrastive objective:** For each batch of N (image, text) pairs, maximize similarity for the N correct pairs and minimize it for the N² - N incorrect pairs.
 

@@ -71,7 +71,9 @@ Pairwise instruction following: LLM judge (GPT-4-Turbo) compares candidate to re
 
 ### Math Benchmarks
 
-**Saturated:** GSM-8K (grade school), MATH (high school), AMC, AIME.
+**Saturated for standard LLMs:** GSM-8K (grade school), MATH (high school), AMC.
+
+**Active frontier (reasoning era):** AIME — near-saturated for standard LLMs (GPT-4o: 12%), but still an active benchmark for reasoning models (o3: ~97%). See [[training/reasoning-models]].
 
 **Frontier-level (unsaturated):**
 - **FrontierMath** — research-level problems (hours/days to solve even for experts)
@@ -95,6 +97,12 @@ Dynamically select items by **Fisher information** — prioritizes items whose d
 ### Point-Biserial Correlation
 
 For each item, compute the correlation between "answered correctly" and "overall model strength." High correlation = discriminative item (strong models get it right, weak models don't). Used in DatBench for item selection: 90% of discriminative power retained with 40% of data.
+
+---
+
+## Benchmark Saturation and Reasoning Models
+
+The arrival of reasoning models ([[training/reasoning-models]]) has dramatically accelerated benchmark saturation. GSM-8K, MATH, and BBH — each considered frontier-level in their time — are now fully saturated. AIME, near-saturated for standard LLMs, remains an active frontier specifically because reasoning models can push it further. This creates ongoing pressure to produce harder benchmarks (BBEH, FrontierMath, ARC-AGI) faster than models can saturate them.
 
 ---
 

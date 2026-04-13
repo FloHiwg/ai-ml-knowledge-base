@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1453da3a7f4ff43a",
+        "id": "2448fe43e307c22d",
         "type": "tabs",
         "children": [
           {
-            "id": "5a0dda95f4b60122",
+            "id": "435200c0d39745bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "knowledge-base/health-checks/2026-04-13.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "2026-04-13"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "knowledge-base/health-checks/2026-04-13.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for 2026-04-13"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "knowledge-base/health-checks/2026-04-13.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links from 2026-04-13"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "knowledge-base/health-checks/2026-04-13.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of 2026-04-13"
             }
           }
         ],
@@ -183,53 +183,55 @@
       "bases:Create new base": false
     }
   },
-  "active": "5a0dda95f4b60122",
+  "active": "435200c0d39745bc",
   "lastOpenFiles": [
-    "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
-    "knowledge-base/summaries/Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/wiki/index.md",
-    "knowledge-base/wiki/training/reasoning-models.md",
+    "knowledge-base/wiki/concepts/distillation.md",
+    "knowledge-base/wiki/training/peft-and-lora.md",
     "README.md",
+    "knowledge-base/health-checks/2026-04-13.md",
+    "knowledge-base/health-checks",
+    "knowledge-base/qa-index.md",
+    "knowledge-base/wiki/training/reasoning-models.md",
+    "knowledge-base/wiki/training/fine-tuning.md",
+    "knowledge-base/manual/Search Interface PRD.md",
+    "tools/search/search.db-journal",
+    "tools/search/search.db",
+    "tests/__pycache__/test_search_core.cpython-313.pyc",
+    "tests/__pycache__",
+    "tools/search/__pycache__/server.cpython-313.pyc",
+    "tools/search/__pycache__/search_core.cpython-313.pyc",
+    "tools/search/__pycache__/index.cpython-313.pyc",
+    "tools/search/__pycache__",
+    "tests/test_search_core.py",
+    "tools/search/README.md",
+    "knowledge-base/manual/ML AI Engineering Cheat Sheet.md",
+    "knowledge-base/wiki/concepts/agi-and-intelligence.md",
+    "knowledge-base/summaries/Andrej Karpathy — AGI is still a decade away.md",
+    "knowledge-base/wiki/index.md",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs.md",
     "knowledge-base/raw/articles/Andrej Karpathy — AGI is still a decade away.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "knowledge-base/summaries/Direct Preference Optimization (DPO).md",
+    "knowledge-base/wiki/training/continual-learning.md",
+    "knowledge-base/summaries/Continual Learning with RL for LLMs.md",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffae3483f-8a62-42b1-8c32-de4bb951731e_1986x882.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fefb26675-91a0-44a5-8919-c732b4acaabb_980x366.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feabdbf11-60ef-4629-8ba2-6af7b9d73a9a_1466x573.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fcf00ae2c-e93c-467a-af25-712826836cc9_950x433.png",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc13f164c-7142-4dac-a7a7-f93b9668fd37_1624x1196.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbf8c4337-9448-4614-8e2c-8c924f63098f_1836x1046.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbc3c794e-bc45-4ceb-a20f-0f0d33dea592_1948x616.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fae0c71f6-dca9-43cf-87aa-bbbe365f115a_1392x748.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa8f8919a-4168-4d1f-bb04-0d2e5897d029_1024x468.jpeg",
+    "knowledge-base/raw/articles/Continual Learning with RL for LLMs/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9bb30a35-5800-4256-b07b-21dce1b0af7e_2489x1391.jpeg",
+    "knowledge-base/summaries/Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D..md",
     "knowledge-base/wiki/training/tokenization.md",
     "knowledge-base/wiki/applications/agentic-patterns.md",
     "knowledge-base/wiki/applications/rag.md",
     "knowledge-base/wiki/concepts/foundation-models.md",
     "knowledge-base/wiki/concepts/scaling-and-the-bitter-lesson.md",
     "knowledge-base/wiki/evaluation/statistical-evaluation.md",
-    "knowledge-base/wiki/evaluation/benchmarks.md",
-    "knowledge-base/wiki/inference/prompting-and-reasoning.md",
-    "knowledge-base/wiki/inference/decoding-strategies.md",
-    "knowledge-base/wiki/training/optimization.md",
-    "knowledge-base/wiki/training/distributed-training.md",
-    "knowledge-base/wiki/training/fine-tuning.md",
-    "knowledge-base/wiki/training/pretraining.md",
-    "knowledge-base/wiki/architecture/graph-neural-networks.md",
-    "knowledge-base/wiki/architecture/pre-transformer-architectures.md",
-    "knowledge-base/wiki/architecture/vision-transformers.md",
-    "knowledge-base/raw/articles/Demystifying Reasoning Models - by Cameron R. Wolfe, Ph.D..md",
-    "knowledge-base/wiki/architecture/positional-embeddings.md",
-    "knowledge-base/wiki/architecture/attention.md",
-    "knowledge-base/wiki/architecture/transformer.md",
-    "knowledge-base/wiki/training",
-    "knowledge-base/wiki/inference",
-    "knowledge-base/wiki/evaluation",
-    "knowledge-base/wiki/concepts",
-    "knowledge-base/wiki/architecture",
-    "knowledge-base/wiki/applications",
-    "knowledge-base/wiki",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffec984b4-30fc-4a0b-9f41-420b04304b18_1413x566.png",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffac4926a-e9a9-4b85-a3eb-47d7a327515c_2148x1406.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff97d7c72-6434-4015-b8ce-71b44913be18_1849x1022.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff9780ab6-6120-4c2a-a52a-3c381dbc816a_2434x1050.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff77e8f45-d6d9-4588-a068-70a5616bec1f_1854x434.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff61bf6c4-b793-4403-818b-497765b377dc_989x590.png",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff52c27e7-c025-4498-b68a-b493045dc957_1710x867.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff3400c02-a7e0-4d19-bcb1-604881039c3b_1958x578.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe8f66323-e52f-4aeb-adcc-4189318d419b_848x616.png",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fde650f22-73f5-4068-809f-ddb9dc130beb_2256x627.jpeg",
-    "knowledge-base/raw/articles/Applying Statistics to LLM Evaluations",
-    "knowledge-base/manual",
-    "knowledge-base/raw/articles/The Anatomy of an LLM Benchmark"
+    "knowledge-base/wiki/evaluation/benchmarks.md"
   ]
 }

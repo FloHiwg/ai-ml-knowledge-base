@@ -57,7 +57,7 @@ A trained encoder-decoder system (not pure prompting) that encodes:
 - Images via ViT (DETR)
 - **Entity relationship graph** via GAT (subject-verb-object triplets extracted with CoreNLP)
 
-The GAT output is fused with text/image encodings via cross-attention. The result outperforms GPT-3/3.5 on GSM8K math word problems and achieves SOTA on ScienceQA (multimodal QA).
+The GAT output is fused with text/image encodings via cross-attention. The result outperforms GPT-3/3.5 on GSM8K math word problems and achieves SOTA on ScienceQA (multimodal QA), outperforming GPT-4+CoT on several subtasks.
 
 **Limitation:** Task-specific fine-tuning required — not plug-and-play.
 
