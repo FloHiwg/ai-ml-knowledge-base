@@ -1,7 +1,7 @@
 # LLM Benchmarks
 
 **Related:** [[evaluation/statistical-evaluation]] · [[evaluation/llm-as-a-judge]] · [[concepts/scaling-and-the-bitter-lesson]]  
-**Sources:** [[summaries/The Anatomy of an LLM Benchmark]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]]
+**Sources:** [[summaries/The Anatomy of an LLM Benchmark]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Patterns for Building LLM-based Systems & Products]]
 
 ---
 
@@ -105,6 +105,61 @@ For each item, compute the correlation between "answered correctly" and "overall
 ## Benchmark Saturation and Reasoning Models
 
 The arrival of reasoning models ([[training/reasoning-models]]) has dramatically accelerated benchmark saturation. GSM-8K, MATH, and BBH — each considered frontier-level in their time — are now fully saturated. AIME, near-saturated for standard LLMs, remains an active frontier specifically because reasoning models can push it further. This creates ongoing pressure to produce harder benchmarks (BBEH, FrontierMath, ARC-AGI) faster than models can saturate them.
+
+---
+
+## Text Generation Metrics
+
+Four automated metrics for evaluating generated text, each measuring a different property:
+
+### BLEU (Bilingual Evaluation Understudy)
+
+**Precision-based n-gram overlap.** Measures what fraction of n-grams in the *generated* text appear in the reference. Adds a **brevity penalty** to prevent short outputs from gaming precision.
+
+- Used primarily in machine translation
+- Fails to capture paraphrase or semantic equivalence
+- Sensitive to tokenization choices
+
+### ROUGE (Recall-Oriented Understudy for Gisting Evaluation)
+
+**Recall-based n-gram overlap.** Measures what fraction of reference n-grams appear in the generated text.
+
+| Variant | What it captures |
+|---|---|
+| **ROUGE-N** | n-gram recall |
+| **ROUGE-L** | Longest Common Subsequence — sentence-level structure |
+| **ROUGE-S** | Skip-gram co-occurrences — allows gaps between matched words |
+
+Used primarily in summarization evaluation.
+
+### BERTScore
+
+**Contextual embedding similarity.** Embeds tokens from candidate and reference using a BERT model, then computes token-level cosine similarity with greedy matching: for each reference token, find the most similar candidate token.
+
+Outputs: Precision (P), Recall (R), F1. Captures semantic similarity that n-gram metrics miss. Heavily dependent on the choice of embedding model and its domain coverage.
+
+### MoverScore
+
+**Soft WMD (Word Mover's Distance)** using BERT contextual embeddings. Unlike BERTScore's one-to-one matching, MoverScore allows many-to-one mappings — finding the optimal transport assignment that minimizes cost to "move" probability mass from candidate to reference tokens. Uses idf-weighting to downweight common words.
+
+More flexible alignment than BERTScore; better at capturing complex semantic relationships between sentences.
+
+### Metric Limitations
+
+All four metrics can be gamed and diverge from human judgment on open-ended generation. Use them as diagnostic signals, not ground truth. G-Eval (Auto-CoT + logprob weighting) achieves Spearman 0.514 with human evaluation on summarization — see [[evaluation/llm-as-a-judge]].
+
+---
+
+## MMLU Implementation Variance
+
+The same model can receive substantially different MMLU scores depending on which evaluation harness is used. Sources of variance:
+
+- **Prompt format:** original Hendrycks format vs HELM vs EleutherAI's `lm-eval`
+- **Few-shot examples:** which examples are selected, and how many
+- **Chat template:** whether instruction/chat formatting is applied to the model
+- **Scoring method:** token probabilities vs sampling vs log-likelihood
+
+**Implication:** model comparisons via MMLU are only valid when the same harness is used throughout. Published leaderboard scores from different organizations are not directly comparable.
 
 ---
 

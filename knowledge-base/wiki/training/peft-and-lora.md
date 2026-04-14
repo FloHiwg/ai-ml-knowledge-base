@@ -1,7 +1,7 @@
 # PEFT and LoRA
 
 **Related:** [[training/fine-tuning]] · [[training/continual-learning]] · [[concepts/agi-and-intelligence]]  
-**Sources:** [[summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models]] · [[summaries/Continual Learning with RL for LLMs]]
+**Sources:** [[summaries/Understanding and Using Supervised Fine-Tuning (SFT) for Language Models]] · [[summaries/Continual Learning with RL for LLMs]] · [[summaries/Patterns for Building LLM-based Systems & Products]]
 
 ---
 
@@ -123,3 +123,53 @@ model.print_trainable_parameters()
 | **Prompt tuning** | Learned tokens prepended to input only | Minimal params; weaker for large tasks |
 | **Adapter layers** | Small bottleneck FFN modules inserted between transformer layers | Original PEFT approach; more latency than LoRA |
 | **QLoRA** | LoRA on a 4-bit quantized base model | Enables 65B+ fine-tuning on a single GPU |
+
+### Soft Prompt Tuning (Lester et al. 2021)
+
+Adds a small number of trainable tokens to the **input embedding layer only**. All model weights remain frozen. The "prompt" is a floating-point tensor — not natural language — optimized purely by gradient descent.
+
+- Parameter count: `num_tokens × embedding_dim` (e.g., 20 × 768 = 15,360 params)
+- At small model scales (<1B params): significantly weaker than fine-tuning
+- At 10B+ scale: approaches full fine-tuning performance
+- Simplest PEFT approach; no architectural changes required
+
+### Prefix Tuning (Li & Liang 2021)
+
+Extends soft prompt tuning by adding trainable vectors to **every transformer layer's K/V pairs**, not just the input embeddings. A separate MLP reparameterizes the prefix to stabilize training (direct optimization of layer activations is unstable).
+
+- **~0.1% of parameters** (vs full fine-tuning's 100%)
+- **Outperforms full fine-tuning in low-data regimes** — fewer parameters → less overfitting on small datasets
+- Strong on structured generation tasks (table-to-text, code generation)
+- More expressive than soft prompt tuning since it steers all layers
+
+### Adapter Layers (Houlsby et al. 2019)
+
+Inserts small **bottleneck FFN modules** between transformer sub-layers:
+
+```
+Input → [Down-project r << d] → [Nonlinearity] → [Up-project r → d] → + residual → Output
+```
+
+All original transformer weights remain frozen; only adapter parameters are updated.
+
+- **~3.6% of parameters** (bottleneck dimension controls this)
+- Within **0.4% of full fine-tuning** on GLUE benchmarks (original Houlsby results)
+- More inference latency than LoRA because adapter modules are sequential, not merged
+- Highly modular — swap adapters at inference time for different tasks on the same base model
+
+### QLoRA (Dettmers et al. 2023)
+
+Enables fine-tuning of very large models on consumer-grade hardware by combining three techniques:
+
+1. **4-bit NF4 quantization** (Normal Float 4): data type mathematically optimal for normally distributed weights — maps each 4-bit bucket to equal probability mass under a normal distribution
+2. **Double quantization**: quantize the FP32 quantization constants themselves using a second quantization step, saving ~0.4 bits/parameter
+3. **Paged optimizers**: when GPU memory overflows during gradient updates, automatically offload optimizer states (momentum, variance) to CPU RAM and page them back as needed
+
+**Memory comparison for a 65B model:**
+
+| Setup | VRAM required |
+|---|---|
+| Full BF16 fine-tuning | >780GB (10+ A100s) |
+| QLoRA (4-bit NF4) | ~48GB (1–2 GPUs) |
+
+Performance: approaches full BF16 fine-tuning quality despite quantization. Opens large-model fine-tuning to academic and single-researcher settings.

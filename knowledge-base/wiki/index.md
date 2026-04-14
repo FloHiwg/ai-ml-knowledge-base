@@ -67,5 +67,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 
 | Page | What it covers |
 |---|---|
-| [[applications/rag]] | RAG, vector databases, retrieval techniques, reranking |
+| [[applications/rag]] | RAG, vector databases, retrieval techniques, reranking, FiD, RETRO, HyDE |
 | [[applications/agentic-patterns]] | Agentic patterns, MCP, A2A, memory, tool use |
+| [[applications/prompt-injection]] | Prompt injection attacks, indirect injection, exfiltration, mitigations, architectural defense patterns |
+| [[applications/guardrails]] | Structural, syntactic, semantic, safety, and input guardrails; Guidance, NeMo-Guardrails, SelfCheckGPT |

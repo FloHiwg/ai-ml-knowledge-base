@@ -1,7 +1,7 @@
 # RAG — Retrieval Augmented Generation
 
 **Related:** [[inference/decoding-strategies]] · [[applications/agentic-patterns]] · [[evaluation/llm-as-a-judge]]
-**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/A Practitioners Guide to Retrieval Augmented Generation (RAG)]] · [[summaries/Experimenting with LLMs to Research, Reflect, and Plan]]
+**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/A Practitioners Guide to Retrieval Augmented Generation (RAG)]] · [[summaries/Experimenting with LLMs to Research, Reflect, and Plan]] · [[summaries/Patterns for Building LLM-based Systems & Products]] · [[summaries/Evaluating RAG systems with synthetic data and LLM judge - Modulai]]
 
 ---
 
@@ -153,7 +153,81 @@ Three-metric evaluation framework (Es et al. 2023) that requires no human-annota
 | **Answer relevance** | Does the answer address the question? | LLM generates reverse-questions from the answer; average cosine similarity with the original question |
 | **Context relevance** | Is retrieved context focused (low noise)? | LLM classifies each sentence in context as relevant or not |
 
-Also use [[evaluation/llm-as-a-judge]] for end-to-end generation quality. Collect per-chunk user feedback (thumbs up/down on cited sources) for retrieval metrics (nDCG, DCG).
+Also use [[evaluation/llm-as-a-judge]] for end-to-end generation quality. Collect per-chunk user feedback (thumbs up/down on cited sources) for retrieval metrics (NDCG, DCG).
+
+**RAGChecker** (Ru et al. 2024) provides fine-grained claim-level diagnostics: it extracts factual claims from answers and verifies each against context or ground truth separately, identifying whether errors originate in the retriever or generator.
+
+### Retriever Evaluation Metrics
+
+For high-stakes domains (legal, medical, enterprise search), the retriever often determines final response quality. Use **graded relevance labels** (1–5 ratings) rather than binary labels — they enable more informative IR metrics.
+
+**NDCG@k (Normalized Discounted Cumulative Gain):** Accounts for both relevance and position. Documents at rank 1 contribute more than at rank 5.
+
+```
+DCG@k  = Σ rel_i / log2(i + 1)    for i = 1..k
+NDCG@k = DCG@k / IDCG@k
+```
+
+Where `IDCG@k` is the ideal DCG (best possible ordering of results).
+
+**k-star Precision@5:** Counts how many of the top 5 retrieved documents have relevance ≥ k, normalized by the number of qualifying documents:
+
+```
+k*P@5 = Σ 1(rel_i ≥ k) / min(5, |docs with rel ≥ k|)
+```
+
+Ensures scores are bounded [0, 1] even when fewer than 5 highly-relevant documents exist for a query.
+
+---
+
+## Advanced Retrieval Architectures
+
+### Dense Passage Retrieval (DPR)
+
+DPR (Karpukhin et al. 2020) trains two **bi-encoders** — one for queries, one for passages — using contrastive learning on (query, positive passage, hard negative passages) triplets from QA datasets. Stores passage embeddings in a FAISS index; retrieval via dot-product similarity.
+
+The original dense retrieval baseline. Fine-tuning the encoders on domain QA pairs is the standard approach to improve in-domain recall.
+
+### Fusion-in-Decoder (FiD)
+
+FiD (Izacard & Grave 2020) solves the passage count scaling problem:
+
+1. Encode each retrieved passage **independently** through the encoder — cost scales linearly with passage count
+2. Decoder attends **jointly** over all encoded passage representations via cross-attention — the model sees all K passages simultaneously
+
+More passages → linearly more encoding, but a single decoder call integrates them all. Scales to 100+ passages; strong on open-domain QA.
+
+### RETRO: Retrieval During Pretraining
+
+RETRO (Borgeaud et al. 2022) integrates retrieval into the pretraining loop rather than inference time:
+
+- Retrieves from a 2 trillion token database during training
+- Uses **chunked cross-attention** to attend to retrieved passages within each sequence chunk
+- Only ~10% of model weights involve retrieval machinery
+
+**RETRO-fitting:** An existing transformer can be converted to a RETRO model by training *only* the retrieval-related weights (<10% of parameters). Achieves GPT-3 (175B) performance at a 7B parameter scale — 25× parameter reduction.
+
+### HyDE: Hypothetical Document Embeddings
+
+HyDE (Gao et al. 2022) addresses the query-document distribution mismatch: queries are short and syntactically different from the long passages they should retrieve.
+
+1. Use an LLM to **generate a hypothetical document** that would answer the query (factual accuracy doesn't matter)
+2. Embed the hypothetical document
+3. Search the real corpus using that embedding
+
+The hypothetical document occupies similar embedding space to real documents, bridging the distribution gap. **No labeled training pairs required** — works zero-shot on new domains.
+
+### Embedding Model Options
+
+| Model | Notes |
+|---|---|
+| **Word2vec / fastText** | Word-level; no context; fastText handles OOV via subword units |
+| **sentence-transformers** | Standard library; many pre-trained models for different domains |
+| **E5** | Microsoft Research; strong on BEIR; uses instruction-prefixed inputs |
+| **Instructor** | Instruction-tuned; specify retrieval task type in the input prefix |
+| **GTE** | Alibaba DAMO; strong multilingual performance |
+
+Evaluate domain-specific recall before committing to an embedding model — off-the-shelf models can fail on specialized or technical terminology.
 
 ---
 

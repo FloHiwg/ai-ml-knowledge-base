@@ -1,7 +1,7 @@
 # Agentic Patterns
 
-**Related:** [[applications/rag]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]]  
-**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]]
+**Related:** [[applications/rag]] · [[applications/prompt-injection]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]]  
+**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Teaching Language Models to use Tools]]
 
 ---
 
@@ -64,6 +64,20 @@ LLMs can call external tools — search engines, APIs, code interpreters, databa
 3. Tool executes (third-party service or local function)
 4. Output returned to LLM as context
 5. LLM generates final response
+
+**Why tools beat fine-tuning for specific capabilities:** A calculator that is always correct is more reliable than a fine-tuned LLM that is usually correct at arithmetic. Tools address knowledge cutoffs, arithmetic errors, temporal blindness, and hallucination more directly than training.
+
+### Teaching Tool Use: Toolformer
+
+Toolformer (Schick et al. 2023) introduced a self-supervised approach to fine-tune LLMs for tool use without human-annotated data:
+
+1. **Generate candidates**: use the model's in-context learning ability + a few examples per tool to insert candidate API calls into a large text corpus
+2. **Filter**: keep only API calls that lower cross-entropy loss on subsequent tokens (i.e., the tool response genuinely helps predict what follows)
+3. **Fine-tune** on the filtered dataset using standard next-token prediction
+
+Key finding: **more tool calls ≠ better performance** — the filtering step is essential to calibrate *when* to call tools, not just *how*. Toolformer (6B GPT-J) outperforms GPT-3 (175B) on several factual and math benchmarks while preserving its general LM capability.
+
+**Evolution toward prompt-based tool use:** As instruction following improved, explicit fine-tuning for tool use became unnecessary. GPT-4 plugins require only a textual description + API schema — the model infers when and how to call the tool via in-context learning. This is the approach standardized by MCP.
 
 ### Planning
 
@@ -163,6 +177,27 @@ A human reviews intermediate or final results at defined checkpoints — either 
 - **Retries with backoff:** Retry transient failures
 - **State recovery:** Return to a clean, uncorrupted state after failure
 - **Goal monitoring:** Let the agent evaluate its own output against SMART objectives (specific, measurable, achievable, relevant, time-bound)
+
+---
+
+## Security: Prompt Injection
+
+The primary security concern for tool-using agents is **prompt injection** — untrusted content (user input, emails, web pages, documents) that contains instructions the LLM follows, overriding the intended system behavior.
+
+Severity scales directly with agent capability:
+- **Read-only app** → low risk (attacker tricks output shown to themselves)
+- **Agent with tool access** → can exfiltrate data, send emails, run queries on behalf of the user
+- **Multi-plugin agent** → cross-plugin chains: Plugin A reads injected content, Plugin B executes the attack
+
+**Indirect prompt injection** (Kai Greshake) is the most insidious variant: injections hidden in content the agent reads as part of normal operation (web pages, emails), not from the user directly. Demonstrated against Bing Chat — a hidden instruction on a webpage gave the agent a "secret agenda."
+
+No 100% reliable defense exists. Practical mitigations:
+1. Prompt visibility: show users what's being concatenated before actions are taken
+2. Human-in-the-loop confirmation before any consequential action
+3. Principle of least privilege: grant only needed tool permissions
+4. Developer education: assume prompt injection is possible; design for it
+
+See [[applications/prompt-injection]] for the full reference page.
 
 ---
 

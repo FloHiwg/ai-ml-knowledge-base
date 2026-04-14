@@ -1,7 +1,7 @@
 # LLM-as-a-Judge
 
 **Related:** [[evaluation/benchmarks]] · [[evaluation/statistical-evaluation]] · [[training/fine-tuning]] · [[inference/prompting-and-reasoning]]
-**Sources:** [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]]
+**Sources:** [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Evaluating RAG systems with synthetic data and LLM judge - Modulai]]
 
 ---
 
@@ -96,6 +96,45 @@ When proprietary judges are unavailable or self-enhancement bias is a concern, s
 ## RLAIF: LLM-as-a-Judge as a Training Signal
 
 LLM-as-a-Judge prompts can generate synthetic preference pairs for RLHF training — this is called **Reinforcement Learning from AI Feedback (RLAIF)**. Constitutional AI (Bai et al. 2022) and Lee et al. (2023) showed this is viable. Rumored to be widely used in top industry labs. See also [[training/fine-tuning]].
+
+---
+
+## RAG-Specific Evaluation
+
+LLM-as-a-Judge is especially common in RAG pipelines. The standard four dimensions are:
+
+| Dimension | What it measures |
+|---|---|
+| **Context Relevance** | Is the retrieved context relevant to the question? |
+| **Answer Faithfulness** | Does the response stay true to the retrieved context? |
+| **Answer Relevance** | Does the response directly address the question? |
+| **Factual Correctness** | Is the response factually accurate against a known ground truth? |
+
+### Fine-tuning Judges: ARES
+
+Rather than using a general-purpose LLM judge, ARES (Saad-Falcon et al. 2023) fine-tunes **separate models per metric** on synthetic QA datasets. Synthetic data covers three quality levels (grounded, hallucinated, poor); examples are auto-labeled and filtered for quality before training. Fine-tuned judges produce more calibrated, nuanced scores than off-the-shelf models.
+
+**WikiEval agreement scores** (vs human labels):
+
+| Metric | RAGChecker | RAGAS | Fine-tuned (ARES-style) |
+|---|---|---|---|
+| Context Relevance | 1.0 | 0.96 | 0.56 |
+| Answer Relevance | — | 0.84 | 0.82 |
+| Answer Faithfulness | 0.98 | 1.0 | 0.89 |
+| Factual Correctness | 0.92 | 1.0 | 0.91 |
+
+Fine-tuned judges match claim-based approaches on most metrics but lag on context relevance — attributable to synthetic data diversity limitations.
+
+### Claim-Based Evaluation: RAGAS and RAGChecker
+
+Instead of holistic scoring, extract factual claims from the answer and verify each claim against context or ground truth. Reduces holistic evaluation to a sequence of simpler binary judgments — explains the higher human agreement scores.
+
+- **RAGAS** (Es et al. 2024): automates faithfulness, answer relevance, and context relevance
+- **RAGChecker** (Ru et al. 2024): fine-grained per-claim diagnostics across retriever and generator
+
+### Human-in-the-Loop: EvalGen
+
+EvalGen (Shankar et al. 2024): use human ratings to calibrate automated evaluators, then iterate. "Validator validation" — ensure the judge itself is trustworthy before trusting its outputs in production decisions.
 
 ---
 

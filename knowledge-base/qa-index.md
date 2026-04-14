@@ -164,6 +164,56 @@ Cameron Wolfe deep-dive on LLM-as-a-Judge: using a powerful LLM to evaluate othe
 
 ---
 
+## Patterns for Building LLM-based Systems & Products
+
+**File:** `summaries/Patterns for Building LLM-based Systems & Products.md`  
+**Type:** article  
+**Topics:** evaluation, RAG, fine-tuning, guardrails, caching, defensive-UX, user-feedback
+
+Eugene Yan's taxonomy of 7 patterns for production LLM systems: Evals (BLEU/ROUGE/BERTScore/MoverScore, G-Eval Spearman 0.514, MMLU harness variance), RAG (DPR, FiD, RETRO, HyDE, embedding models), Fine-tuning (soft prompt tuning, prefix tuning 0.1% params, adapters 3.6%/0.4% FT gap, QLoRA 65B→48GB), Caching (semantic/GPTCache), Guardrails (Guidance, NeMo-Guardrails, SelfCheckGPT), Defensive UX (MS HAI/Google PAIR/Apple HIG), and User Feedback (data flywheel).
+
+---
+
+## Evaluating RAG systems with synthetic data and LLM judge - Modulai
+
+**File:** `summaries/Evaluating RAG systems with synthetic data and LLM judge - Modulai.md`  
+**Type:** article  
+**Topics:** RAG, evaluation, llm-as-a-judge, retrieval, synthetic-data, NDCG
+
+Modulai (Yue Liu) survey of RAG evaluation strategies: end-to-end LLM judges, ARES (fine-tune separate metric-specific judges on synthetic QA data), claim-based evaluation (RAGAS, RAGChecker), and human-in-the-loop calibration (EvalGen). Meta-evaluation on WikiEval shows fine-tuned judges match claim-based approaches on faithfulness/relevance (0.82–0.91) but lag on context relevance (0.56 vs 1.0). Covers retriever metrics: NDCG and k-star Precision@5 using graded relevance labels.
+
+---
+
+## Design Patterns for Securing LLM Agents against Prompt Injections
+
+**File:** `summaries/Design Patterns for Securing LLM Agents against Prompt Injections.md`  
+**Type:** article  
+**Topics:** prompt-injection, security, agentic-patterns, architecture, Dual-LLM, CaMeL
+
+Simon Willison's commentary on Beurer-Kellner et al. (2025). Presents six architectural design patterns that mitigate prompt injection by constraining what agents can do after ingesting untrusted content: Action-Selector, Plan-Then-Execute, Map-Reduce, Dual LLM, Code-Then-Execute (CaMeL), and Context-Minimization. Core thesis: general-purpose agents cannot be made injection-safe; security requires intentionally limiting agent capabilities.
+
+---
+
+## Teaching Language Models to use Tools
+
+**File:** `summaries/Teaching Language Models to use Tools.md`  
+**Type:** article  
+**Topics:** tool-use, fine-tuning, agentic-patterns, Toolformer, in-context-learning
+
+Cameron Wolfe overview of LLM tool use, centered on Toolformer (Schick et al. 2023): self-supervised dataset construction (LLM-generated + filtered API call examples, no human labels) + SFT on 6B GPT-J. Key findings: filtering to keep only improvement-yielding tool calls is essential; over-triggering degrades performance; Toolformer outperforms GPT-3 at 6B params. Contrasts with prompt-based tool use in GPT-4 (description + schema, no fine-tuning needed).
+
+---
+
+## Prompt injection What's the worst that can happen
+
+**File:** `summaries/Prompt injection What's the worst that can happen.md`  
+**Type:** article  
+**Topics:** prompt-injection, security, agentic-patterns, tool-use, data-exfiltration
+
+Simon Willison's (Apr 2023) survey of prompt injection as an LLM security vulnerability: untrusted input overrides system instructions with no 100% reliable defense. Covers five attack classes (direct injection, rogue assistant, search index poisoning, cross-plugin data exfiltration, indirect injection) and three mitigations (prompt visibility, human-in-the-loop confirmation, developer education). Risk is low for display-only apps but dangerous for LLMs with tool access.
+
+---
+
 ## Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D.
 
 **File:** `summaries/Mixture-of-Experts (MoE) LLMs - by Cameron R. Wolfe, Ph.D..md`  
