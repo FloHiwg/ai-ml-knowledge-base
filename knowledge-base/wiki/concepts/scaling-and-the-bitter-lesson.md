@@ -1,7 +1,7 @@
 # Scaling and The Bitter Lesson
 
 **Related:** [[concepts/foundation-models]] · [[training/pretraining]] · [[architecture/transformer]] · [[architecture/vision-transformers]]  
-**Sources:** [[summaries/The Bitter Lesson]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]]
+**Sources:** [[summaries/The Bitter Lesson]] · [[summaries/Language Models GPT and GPT-2 - by Cameron R. Wolfe, Ph.D.]] · [[summaries/AINews Is Harness Engineering real - Latent.Space]]
 
 ---
 
@@ -93,3 +93,17 @@ See [[architecture/vision-transformers]].
 > *"Scale beats hand-crafted approaches — not in every paper, but in every decade."*
 
 The practical implication for practitioners: invest in data quality and quantity, in general architectures (transformers), and in compute before investing in elaborate domain-specific engineering.
+
+---
+
+## The Bitter Lesson Applied to Agent Harnesses
+
+The Bitter Lesson predicts a specific dynamic in agent engineering: scaffolding built to compensate for model weaknesses will eventually be rendered obsolete by model improvements.
+
+This has already occurred once: before reasoning models (GPT-o1, DeepSeek-R1), elaborate agentic scaffolding made many sequential calls to weaker models to simulate chain-of-thought reasoning. Reasoning models arrived and eliminated the need for that scaffolding — the model internalized what the harness was doing (Noam Brown, 2026).
+
+The same pattern is expected to recur: any harness component that compensates for a current model limitation is a candidate for obsolescence as models improve.
+
+**Counterargument (Big Harness):** Despite the Bitter Lesson, market evidence suggests harness engineering has durable value — Cursor's $50B valuation, dramatic cross-model improvements from harness optimization (Pi blog), and Jerry Liu's observation that the biggest barrier to AI value is context/workflow engineering, not model capability. The harness may evolve rather than disappear: as one layer of scaffolding becomes obsolete, new applications expose new limits that require new scaffolding.
+
+See [[summaries/AINews Is Harness Engineering real - Latent.Space]] and [[wiki/applications/agent-harness]] for the full debate.

@@ -1,7 +1,7 @@
 # Prompt Injection
 
 **Related:** [[applications/agentic-patterns]] · [[inference/prompting-and-reasoning]]
-**Sources:** [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Design Patterns for Securing LLM Agents against Prompt Injections]]
+**Sources:** [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Design Patterns for Securing LLM Agents against Prompt Injections]] · [[summaries/Skill Issue Harness Engineering for Coding Agents  HumanLayer Blog]]
 
 ---
 

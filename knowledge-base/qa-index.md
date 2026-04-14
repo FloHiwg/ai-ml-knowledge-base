@@ -4,6 +4,46 @@ A compact index of all processed sources. Loaded in full for Q&A — keep each e
 
 ---
 
+## Harness Engineering: Leveraging Codex in an Agent-First World — OpenAI
+
+**File:** `summaries/Harness engineering leveraging Codex in an agent-first world  OpenAI.md`  
+**Type:** article  
+**Topics:** agent-harness, agentic-patterns, context-engineering, back-pressure, agent-first-development
+
+OpenAI Codex team's account of building a real product with 0 lines of manually-written code over 5 months (~1M LOC, ~1,500 PRs, 3–7 engineers, ~3.5 PRs/engineer/day, ~10× faster than hand-coding). Key lessons: AGENTS.md as map not manual; repository as system of record; mechanical enforcement of architectural invariants; "garbage collection" via recurring cleanup agents; end-to-end autonomy milestone; "boring technology" preference for agent legibility.
+
+---
+
+## AINews: Is Harness Engineering Real? — Latent.Space
+
+**File:** `summaries/AINews Is Harness Engineering real - Latent.Space.md`  
+**Type:** article  
+**Topics:** agent-harness, scaling, bitter-lesson, agentic-patterns, harness-engineering
+
+Latent.Space AINews (March 2026) synthesizing the Big Model vs. Big Harness debate. Big Model evidence: Claude Code's deliberately minimal harness, Noam Brown predicting scaffolds will be replaced by better models, METR finding no harness advantage, Scale AI SWE-Atlas showing harness effects within margin of error. Big Harness evidence: Pi blog showing 15-model improvements from harness-only changes, Cursor's $50B valuation, Jerry Liu on context/workflow engineering as the primary leverage. Conclusion: harness engineering is real but harness assumptions go stale.
+
+---
+
+## Skill Issue: Harness Engineering for Coding Agents — HumanLayer
+
+**File:** `summaries/Skill Issue Harness Engineering for Coding Agents  HumanLayer Blog.md`  
+**Type:** article  
+**Topics:** agent-harness, context-engineering, sub-agents, skills, hooks, back-pressure, agentic-patterns
+
+HumanLayer practitioner guide to coding agent harness configuration. Covers CLAUDE.md/AGENTS.md best practices (ETH Zurich study findings), MCP tool overload and context-efficient wrapping, skills for progressive disclosure, sub-agents as context firewalls (backed by Chroma context rot research), hooks for deterministic control flow, and back-pressure verification mechanisms. Introduces the "instruction budget" concept. Also notes model over-fitting to training harnesses (Terminal Bench 2.0 data).
+
+---
+
+## Scaling Managed Agents: Decoupling the brain from the hands — Anthropic
+
+**File:** `summaries/Scaling Managed Agents Decoupling the brain from the hands  Anthropic.md`  
+**Type:** article  
+**Topics:** managed-agents, agent-harness, agentic-patterns, security, multi-agent, context-management
+
+Anthropic Engineering article introducing the Managed Agents hosted service. Covers the architectural shift from a monolithic container ("pet") to three decoupled interfaces — session (durable event log), harness (stateless brain), sandbox (cattle hands) — connected via `execute(name, input) → string`. Key results: p50 TTFT -60%, p95 TTFT -90% from on-demand sandbox provisioning. Introduces structural credential isolation via vault + proxy pattern and init-time auth bundling.
+
+---
+
 ## Harnessing AI Agents: The Design and Evolution of Harness Engineering — Weng Jialin
 
 **File:** `summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin.md`  

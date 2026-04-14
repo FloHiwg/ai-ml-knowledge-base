@@ -1,7 +1,7 @@
 # Agentic Patterns
 
 **Related:** [[applications/rag]] · [[applications/prompt-injection]] · [[applications/agent-harness]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]] · [[evaluation/alignment-evaluation]]  
-**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Teaching Language Models to use Tools]] · [[summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise]] · [[summaries/How OpenAI, Gemini, and Claude Use Agents to Power Deep Research]] · [[summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin]]
+**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Teaching Language Models to use Tools]] · [[summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise]] · [[summaries/How OpenAI, Gemini, and Claude Use Agents to Power Deep Research]] · [[summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin]] · [[summaries/Scaling Managed Agents Decoupling the brain from the hands  Anthropic]]
 
 ---
 
