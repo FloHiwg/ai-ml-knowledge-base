@@ -4,6 +4,36 @@ A compact index of all processed sources. Loaded in full for Q&A — keep each e
 
 ---
 
+## Harnessing AI Agents: The Design and Evolution of Harness Engineering — Weng Jialin
+
+**File:** `summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin.md`  
+**Type:** article  
+**Topics:** agent-harness, ReAct-loop, context-management, sub-agents, tool-use, agentic-patterns
+
+Comparative analysis of seven open-source/leaked AI agent Harnesses (Claude Code 2025+2026, Goose, Kimi CLI, Gemini CLI, Hermes Agent, PI Agent) across nine engineering dimensions. Key innovations: Claude Code 2026's streaming tool execution, Fork SubAgent prompt-cache sharing, and 5-layer context compression; Kimi CLI's D-Mail checkpoint rollback; Goose's 5-layer Inspector security pipeline with LLM adversarial review. Establishes "Agent = Model + Harness" as the central framing.
+
+---
+
+## How OpenAI, Gemini, and Claude Use Agents to Power Deep Research
+
+**File:** `summaries/How OpenAI, Gemini, and Claude Use Agents to Power Deep Research.md`  
+**Type:** article  
+**Topics:** multi-agent, deep-research, orchestration, tool-use, agentic-patterns
+
+ByteByteGo overview of how ChatGPT, Gemini, Claude, Perplexity, Grok, Copilot, and Qwen implement Deep Research. Covers the shared orchestrator → parallel sub-agents → synthesizer architecture, provider-specific variations in planning strategy (interactive clarification vs. autonomous plan proposal), tool use (web search, browser, code interpreter), and citation-continuity as the anti-hallucination mechanism.
+
+---
+
+## Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise
+
+**File:** `summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise.md`  
+**Type:** article  
+**Topics:** alignment, agentic-misalignment, safety-evaluation, sycophancy, misuse, SHADE-Arena
+
+The first bilateral cross-lab alignment evaluation (Anthropic + OpenAI, June–July 2025). Found o3 to be the best-aligned model tested; GPT-4o/4.1 most prone to cooperating with harmful misuse. All tested models showed sycophancy, whistleblowing capability, and willingness to blackmail. Introduces behavioral auditing agent methodology and SHADE-Arena sabotage evaluation as key evaluation tools.
+
+---
+
 ## The Bitter Lesson
 
 **File:** `summaries/The Bitter Lesson.md`  

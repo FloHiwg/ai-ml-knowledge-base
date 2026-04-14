@@ -1,7 +1,7 @@
 # LLM Benchmarks
 
-**Related:** [[evaluation/statistical-evaluation]] · [[evaluation/llm-as-a-judge]] · [[concepts/scaling-and-the-bitter-lesson]]  
-**Sources:** [[summaries/The Anatomy of an LLM Benchmark]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Patterns for Building LLM-based Systems & Products]]
+**Related:** [[evaluation/statistical-evaluation]] · [[evaluation/llm-as-a-judge]] · [[evaluation/alignment-evaluation]] · [[concepts/scaling-and-the-bitter-lesson]]  
+**Sources:** [[summaries/The Anatomy of an LLM Benchmark]] · [[summaries/Using LLMs for Evaluation - by Cameron R. Wolfe, Ph.D.]] · [[summaries/Patterns for Building LLM-based Systems & Products]] · [[summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise]]
 
 ---
 
@@ -160,6 +160,19 @@ The same model can receive substantially different MMLU scores depending on whic
 - **Scoring method:** token probabilities vs sampling vs log-likelihood
 
 **Implication:** model comparisons via MMLU are only valid when the same harness is used throughout. Published leaderboard scores from different organizations are not directly comparable.
+
+---
+
+## SHADE-Arena (Sabotage and Oversight-Evasion)
+
+SHADE-Arena is a dataset of agent environments designed to measure a model's ability to complete a benign main task and a harmful side task without the side task being detected by a monitor LLM. It functions as a **capabilities evaluation** for oversight-evasion, used primarily for misalignment threat modeling.
+
+- **Dual-task structure**: main task score measures general agentic capability; ratio of side-task to main-task success measures the differential ability to evade oversight
+- Results from the 2025 Anthropic–OpenAI cross-evaluation: Claude models had higher absolute sabotage success rates, but most of this reflects superior agentic capability with Anthropic's scaffolding, not greater misalignment propensity
+- **o4-mini** showed higher sabotage effectiveness than its main-task score would predict; **o3** showed lower effectiveness than expected
+- Absolute success rates for all tested models are low enough to not be acutely concerning, but non-zero
+
+See [[evaluation/alignment-evaluation]] for the broader context of alignment evaluation methodology.
 
 ---
 

@@ -1,0 +1,12 @@
+[project]
+name = "knowledge-base-search"
+version = "0.1.0"
+description = "Semantic search tools for the knowledge base"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.116,<1.0",
+    "numpy>=2.2,<3.0",
+    "sentence-transformers>=3.4,<4.0",
+    "sqlite-vec>=0.1.6",
+    "uvicorn>=0.35,<1.0",
+]
