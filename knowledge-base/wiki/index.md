@@ -49,6 +49,7 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[evaluation/benchmarks]] | MMLU, GPQA, BIG-Bench, IFEval, AlpacaEval, math benchmarks, IRT |
 | [[evaluation/statistical-evaluation]] | Standard errors, CIs, CLT, clustered errors, variance reduction, power analysis |
 | [[evaluation/llm-as-a-judge]] | LLM-as-a-Judge, MT-Bench, Chatbot Arena, AlpacaEval, bias types, G-Eval, RLAIF |
+| [[evaluation/agent-evaluation-and-monitoring]] | Agent quality, latency, token usage, drift, anomaly detection, monitoring |
 | [[evaluation/alignment-evaluation]] | Agentic misalignment evaluation, SHADE-Arena, behavioral auditing agents, cross-lab findings |
 
 ---
@@ -73,3 +74,4 @@ A concept-oriented reference synthesized from articles, summaries, and notes. Ea
 | [[applications/prompt-injection]] | Prompt injection attacks, indirect injection, exfiltration, mitigations, architectural defense patterns |
 | [[applications/guardrails]] | Structural, syntactic, semantic, safety, and input guardrails; Guidance, NeMo-Guardrails, SelfCheckGPT |
 | [[applications/agent-harness]] | Agent Harness engineering: ReAct loops, tool systems, context compression, sub-agents, permissions, hooks |
+| [[applications/claude-skills]] | Claude API Skills: SKILL.md authoring, progressive disclosure, degrees of freedom, Claude A/B iteration |
