@@ -1,7 +1,7 @@
 # Agentic Patterns
 
-**Related:** [[applications/rag]] · [[applications/prompt-injection]] · [[applications/agent-harness]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]] · [[evaluation/alignment-evaluation]]  
-**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Teaching Language Models to use Tools]] · [[summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise]] · [[summaries/How OpenAI, Gemini, and Claude Use Agents to Power Deep Research]] · [[summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin]] · [[summaries/Scaling Managed Agents Decoupling the brain from the hands  Anthropic]]
+**Related:** [[applications/rag]] · [[applications/prompt-injection]] · [[applications/agent-harness]] · [[inference/prompting-and-reasoning]] · [[concepts/agi-and-intelligence]] · [[evaluation/alignment-evaluation]] · [[evaluation/agent-evaluation-and-monitoring]]  
+**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/Building Multi-Agent Systems (Part 3) - by Shrivu Shankar]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Prompt injection What's the worst that can happen]] · [[summaries/Teaching Language Models to use Tools]] · [[summaries/Findings from a Pilot Anthropic - OpenAI Alignment Evaluation Exercise]] · [[summaries/How OpenAI, Gemini, and Claude Use Agents to Power Deep Research]] · [[summaries/Harnessing AI Agents The Design and Evolution of Harness Engineering  Weng Jialin]] · [[summaries/Scaling Managed Agents Decoupling the brain from the hands  Anthropic]] · [[summaries/Agentic Design Patterns/00 Index]]
 
 ---
 
@@ -83,6 +83,8 @@ Key finding: **more tool calls ≠ better performance** — the filtering step i
 
 For requests too complex for a single action: generate a plan first, then execute step by step. A todo list or scratchpad helps maintain state across steps. Prompting the model to plan before acting triggers an internal reasoning phase.
 
+The important distinction is between **discovering the path** and **executing a known workflow**. If the steps are already deterministic and repeatable, a fixed pipeline is usually safer. Planning is most useful when the "how" must be inferred at runtime and revised as new constraints appear.
+
 ### Multi-Agent Collaboration
 
 Multiple specialized agents working together:
@@ -99,6 +101,21 @@ Multiple specialized agents working together:
 - Network — every agent can communicate with every other
 - Supervisor (star) — one orchestrator coordinates
 - Hierarchical — multi-layer supervision
+
+### Prioritization
+
+Agents rarely face just one action at a time. A prioritization layer ranks goals, tasks, or immediate next actions using urgency, importance, dependencies, available resources, and user preferences. This ranking is dynamic — priorities should change when deadlines move, new incidents appear, or capacity drops.
+
+### Resource-Aware Optimization
+
+Agent systems do not optimize only for answer quality. They also trade off **latency, compute, budget, and availability**:
+
+- route simple work to faster, cheaper models
+- escalate hard or high-value work to stronger models
+- degrade gracefully to fallback models when a preferred model is overloaded
+- reduce bandwidth and token use by retrieving summaries instead of full payloads
+
+This is operational decision-making layered on top of ordinary planning.
 
 ---
 
@@ -163,11 +180,15 @@ Defines how agents discover and communicate with each other.
 
 **Communication:** Asynchronous tasks using JSON-RPC 2.0. Interaction modes: request/response (polling) or SSE (streaming). TLS by design for secure inter-agent communication.
 
+The practical value is **interoperability**: an agent can advertise its capabilities through an Agent Card, be discovered through a registry or well-known endpoint, and be treated as a service without the caller needing to know its internal framework.
+
 ---
 
 ## Human-in-the-Loop
 
 A human reviews intermediate or final results at defined checkpoints — either at fixed points in the pipeline or on-demand when the model flags uncertainty. Necessary for high-stakes decisions, irreversible actions, or tasks requiring external execution.
+
+Human-in-the-loop does not scale cleanly, but it remains indispensable for ambiguous, regulated, or ethically sensitive tasks. A lighter variation is **human-on-the-loop**, where humans define the policy and escalation rules while the agent handles immediate actions inside that boundary.
 
 ---
 
@@ -177,6 +198,25 @@ A human reviews intermediate or final results at defined checkpoints — either 
 - **Retries with backoff:** Retry transient failures
 - **State recovery:** Return to a clean, uncorrupted state after failure
 - **Goal monitoring:** Let the agent evaluate its own output against SMART objectives (specific, measurable, achievable, relevant, time-bound)
+
+Production agents usually need three distinct layers:
+
+1. **Detection** — malformed tool output, service failures, unexpected latency, incoherent model responses
+2. **Handling** — logging, retries, fallbacks, notifications, graceful degradation
+3. **Recovery** — rollback, replanning, self-correction, or escalation to a human
+
+Reflection can function as a recovery mechanism when the agent analyzes a failure and retries with a revised plan rather than blindly repeating the same action.
+
+---
+
+## Open-Ended Discovery Agents
+
+Most agent patterns optimize work inside a known task envelope. Exploration-oriented systems instead search for **new knowledge or new strategies**. Two canonical examples are:
+
+- **Google Co-Scientist** — a multi-agent research system with generation, reflection, ranking, evolution, proximity, and meta-review roles, plus Elo-style internal ranking for hypotheses
+- **Agent Laboratory** — an autonomous research workflow spanning literature review, experimentation, report writing, and knowledge sharing through AgentRxiv
+
+These systems still require human guidance, external validation, and strong safety review. Their value lies in expanding the search space, not in replacing scientific judgment.
 
 ---
 

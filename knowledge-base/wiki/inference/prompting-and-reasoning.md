@@ -1,7 +1,7 @@
 # Prompting and Reasoning Strategies
 
 **Related:** [[inference/decoding-strategies]] · [[architecture/graph-neural-networks]] · [[training/fine-tuning]] · [[concepts/agi-and-intelligence]] · [[applications/agentic-patterns]]
-**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]] · [[summaries/Andrej Karpathy — AGI is still a decade away]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]]
+**Sources:** [[summaries/Graph-Based Prompting and Reasoning with Language Models]] · [[summaries/Andrej Karpathy — AGI is still a decade away]] · [[summaries/LLM Powered Autonomous Agents  Lil'Log]] · [[summaries/AI Agents from First Principles]] · [[summaries/Agentic Design Patterns/17 Reasoning Techniques]]
 
 ---
 
@@ -75,6 +75,16 @@ Enables **lookahead and recovery** — the model can explore "what if I go this 
 
 **Cost:** Much more LLM calls than CoT. Best for complex, structured tasks (puzzles, multi-step planning).
 
+### Self-Correction
+
+Self-correction inserts an explicit review-and-revision step into the reasoning loop:
+
+```
+Draft answer → Critique → Revised answer
+```
+
+This is cheaper than full Tree-of-Thought search and is often the highest-leverage upgrade for tasks like summarization, code generation, and planning where the model's first attempt is usable but incomplete or error-prone.
+
 ---
 
 ## Graph-of-Thought (GoT)
@@ -140,6 +150,29 @@ Thought frequency can be fixed (one thought per action, for reasoning-heavy task
 Either direction outperforms using one approach alone.
 
 ReAct is the standard template for tool-using agents — see [[applications/agentic-patterns]].
+
+### Program-Aided Language Models (PAL)
+
+Some reasoning steps are better delegated to deterministic execution. PAL-style systems let the model translate a problem into code, execute that code, and then reason over the result. This is especially effective for:
+
+- arithmetic and symbolic manipulation
+- structured data processing
+- verifiable intermediate computations
+
+The pattern is not "use code for everything," but "offload the parts where free-form language reasoning is the weakest."
+
+---
+
+## Inference-Time Compute as a Reasoning Dial
+
+Reasoning quality is often a function of how much computation the system spends **during inference**, not just how the model was trained. More thinking time can mean:
+
+- longer or more detailed CoT traces
+- multiple sampled reasoning paths
+- iterative search and backtracking
+- tool use inside the reasoning loop
+
+This is why lightweight prompting, self-correction, ToT, and ReAct can all be seen as different ways of buying better reasoning with more structured inference-time compute.
 
 ---
 

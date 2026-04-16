@@ -1,7 +1,7 @@
 # RAG — Retrieval Augmented Generation
 
 **Related:** [[inference/decoding-strategies]] · [[applications/agentic-patterns]] · [[evaluation/llm-as-a-judge]]
-**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/A Practitioners Guide to Retrieval Augmented Generation (RAG)]] · [[summaries/Experimenting with LLMs to Research, Reflect, and Plan]] · [[summaries/Patterns for Building LLM-based Systems & Products]] · [[summaries/Evaluating RAG systems with synthetic data and LLM judge - Modulai]]
+**Sources:** [[manual/ML AI Engineering Cheat Sheet]] · [[summaries/A Practitioners Guide to Retrieval Augmented Generation (RAG)]] · [[summaries/Experimenting with LLMs to Research, Reflect, and Plan]] · [[summaries/Patterns for Building LLM-based Systems & Products]] · [[summaries/Evaluating RAG systems with synthetic data and LLM judge - Modulai]] · [[summaries/Agentic Design Patterns/14 Knowledge Retrieval (RAG)]]
 
 ---
 
@@ -31,6 +31,19 @@ Documents are chunked and embedded into dense vectors. The database stores these
 ### RAG Graph (Knowledge Graph RAG)
 
 Instead of a flat vector index, stores relational structure — how entities and concepts are connected. Enables multi-hop retrieval ("what is the CEO of the company that acquired X?") without requiring all facts to appear in a single passage.
+
+This is the core benefit of **GraphRAG**: it can answer questions whose evidence is fragmented across multiple documents because the retrieval unit is not just a chunk, but a path through explicit relationships.
+
+### Agentic RAG
+
+Standard RAG retrieves context and passes it through. **Agentic RAG** adds a reasoning layer that inspects the retrieved material before final generation. That agent can:
+
+- prefer the most authoritative or most recent source
+- discard outdated or noisy context
+- detect contradictions across retrieved documents
+- decide that another retrieval round is needed before answering
+
+This is especially valuable in enterprise settings where multiple documents disagree or where raw retrieval tends to surface both draft and final policy versions.
 
 ---
 
@@ -126,6 +139,8 @@ The default LangChain approach — fixed-size chunks of 1,000–2,000 tokens —
 Why it matters: embedding a 1,500-token chunk that covers five concepts forces the model to place it in the latent space of all five, making retrieval on any single concept unreliable. Paragraph-level chunking keeps embeddings conceptually focused.
 
 Note: scraping, chunking, and indexing data often takes as much engineering effort as building the application on top of it.
+
+The retrieval unit matters because many RAG failures are really **chunking failures**. If a concept is spread across several chunks or buried inside overly broad chunks, the retriever may return incomplete evidence even when the right document exists.
 
 ### Embedding Domain Adaptation
 
@@ -242,3 +257,16 @@ Evaluate domain-specific recall before committing to an embedding model — off-
 | Best for | Factual QA, document search | Style, format, specialized capabilities |
 
 **Empirical finding**: RAG far outperforms continued pretraining/finetuning for knowledge injection. Combining RAG + finetuning does not consistently outperform RAG alone (Ovadia et al. 2023). Most knowledge is acquired during pretraining; finetuning adjusts output format more than knowledge content.
+
+---
+
+## Operational Failure Modes
+
+RAG systems commonly fail in four ways:
+
+1. **Missed context** — the relevant information is split across chunks or documents and is never retrieved together
+2. **Noisy retrieval** — the retriever surfaces technically similar but practically irrelevant chunks
+3. **Conflicting evidence** — multiple retrieved sources disagree, and the model lacks a reconciliation layer
+4. **Stale indexes** — the corpus changes faster than the embedding and retrieval pipeline is refreshed
+
+These are why reranking, hybrid retrieval, GraphRAG, and Agentic RAG matter: they solve different parts of the same grounding problem.

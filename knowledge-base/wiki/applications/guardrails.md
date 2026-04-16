@@ -1,7 +1,7 @@
 # Guardrails
 
 **Related:** [[applications/prompt-injection]] · [[applications/agentic-patterns]] · [[inference/prompting-and-reasoning]]
-**Sources:** [[summaries/Patterns for Building LLM-based Systems & Products]]
+**Sources:** [[summaries/Patterns for Building LLM-based Systems & Products]] · [[summaries/Agentic Design Patterns/18 Guardrails-Safety Patterns]] · [[summaries/Agentic Design Patterns/13 Human-in-the-Loop]]
 
 ---
 
@@ -22,6 +22,16 @@ Guardrails are validation and constraint mechanisms that intercept LLM inputs or
 | **Input** | Prompt injection detection, input validation, length | Input — screen before processing |
 
 Defense-in-depth: multiple layers provide redundancy. A prompt injection that bypasses the input filter may still be caught by semantic validation if it attempts an unexpected action.
+
+For agentic systems, it helps to think in execution order:
+
+| Stage | Typical guardrail |
+|---|---|
+| **Before model call** | Input sanitization, moderation, prompt-injection screening |
+| **Inside agent policy** | System prompt constraints, role scoping, escalation rules |
+| **Before tool call** | Parameter validation, auth checks, allow/deny rules |
+| **After tool call / before user output** | Output validation, redaction, moderation, schema checks |
+| **Critical decision boundary** | Human review or approval |
 
 ---
 
@@ -82,6 +92,10 @@ Defines programmable rails using Colang, a domain-specific language for conversa
 
 LLM-based validation: NeMo-Guardrails uses a secondary LLM call to evaluate whether a response violates a defined policy. More flexible than rule-based approaches; can handle nuanced policy violations. Integrates with LangChain and other agent frameworks.
 
+### Pydantic-Validated Guardrail Agents
+
+For high-signal policy checks, a useful pattern is to ask a fast model to return a structured compliance decision and then validate that decision with a deterministic schema checker such as Pydantic. The model handles semantic judgment; the schema enforces machine-readable structure and prevents malformed control outputs from silently passing through.
+
 ---
 
 ## Safety Guardrails
@@ -96,6 +110,17 @@ Detecting and filtering harmful outputs:
 | **Off-topic classifiers** | Detect responses that leave the intended use case |
 
 For agentic systems, input guardrails that detect prompt injection are especially critical — see [[applications/prompt-injection]].
+
+### Tool-Time Guardrails
+
+Tool use creates a second attack surface. Even if the prompt is safe, the agent may still call a tool with unsafe parameters or on behalf of the wrong user. A strong agent harness therefore validates tool arguments at execution time:
+
+- confirm the session user matches the requested user identifier
+- block calls outside the allowed resource scope
+- enforce allowlists or regex checks on dangerous parameters
+- reject or escalate mismatched or ambiguous tool requests
+
+This is the point where guardrails stop being "content moderation" and become action governance.
 
 ---
 
@@ -119,3 +144,4 @@ Common principle across all three: **surface uncertainty, give users control, ex
 - **Guardrails can be bypassed** — sophisticated adversaries will probe guardrail thresholds. Defense-in-depth across layers is more robust than a single strong guardrail.
 - **Structural guardrails are the most reliable** — token-level constraints (Guidance) make format violations impossible rather than merely unlikely.
 - **Combine with human-in-the-loop** — for high-stakes actions, no automated guardrail replaces explicit user confirmation.
+- **Observability is part of the safety system** — log tool calls, inputs, outputs, and escalation events so violations can be audited and incidents investigated.
